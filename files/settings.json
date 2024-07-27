@@ -1,11 +1,11 @@
 {
-	"editor.formatOnSave": true,
-	"phpsab.standard": "WordPress",
-	"[php]": {
-		"editor.defaultFormatter": "valeryanm.vscode-phpsab"
-	},
-	"search.exclude": {
-		"**.min.css": true,
-		"**.min.js": true
-	}
+  "editor.formatOnSave": true,
+  "phpsab.standard": "WordPress",
+  "[php]": {
+    "editor.defaultFormatter": "valeryanm.vscode-phpsab"
+  },
+  "search.exclude": {
+    "**.min.css": true,
+    "**.min.js": true
+  }
 }

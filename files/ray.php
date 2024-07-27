@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Global Ray package settings for communicating between Docker server and Ray desktop app
  *
@@ -7,6 +6,7 @@
  */
 
 return array(
+
 	/*
 	 * This settings controls whether data should be sent to Ray.
 	 */
