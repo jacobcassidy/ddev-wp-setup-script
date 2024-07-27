@@ -1,6 +1,6 @@
 # IGNORE ENVIRONMENT FILES
 log
-ddev-wp-setup-scripts
+ddev-wp-setup-script
 
 # IGNORE WORDPRESS CORE FILES
 wp-admin
