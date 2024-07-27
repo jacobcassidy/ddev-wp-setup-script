@@ -1,12 +1,17 @@
 # DDEV WordPress Setup Script
 
-Use the install script for your initial WordPress project installation and setup. It automatically sets up the following:
+Use this installation script to setup your initial WordPress environment with DDEV.
+
+## Features
+
+This script automatically sets up the following:
 
 - Configures and starts the [DDEV](https://ddev.com/) Docker containers for a WordPress development environment.
 - Installs a clean WordPress site with the default pages, posts, comments, plugins, and themes removed (with the exception of the latest official default theme as a fallback).
 - Downloads, installs, and activates the [CassidyWP Starter Block Theme](https://github.com/jacobcassidy/cassidywp-starter-block-theme).
 - Installs the [All-in-One WP Migration plugin](https://wordpress.org/plugins/all-in-one-wp-migration/).
-- Installs the [All-in-One WP Migration Unlimited Extension plugin](https://servmask.com/products/unlimited-extension). Note: this plugin is sourced from your local machine since it's not available through the plugin directory, so the plugin's zip file location needs to be updated to wherever it's stored.
+- Installs the [All-in-One WP Migration Unlimited Extension plugin](https://servmask.com/products/unlimited-extension).
+  - _Note: this plugin is not free and is sourced from your local machine since it's unavailable through the official WP plugin directory. You can turn the installation off in the `config.sh` file if you don't have this plugin._
 - Installs the files needed to connect the DDEV Docker containers with the [Spatie Ray](https://myray.app/) desktop app for simple debugging.
 - Initializes a local project Git repo and adds a `.gitignore` file.
 - Adds a VSCode Workspace `.vscode/settings.json` file to include formatting rules to match WordPress's official coding standards.
@@ -32,4 +37,4 @@ Use the install script for your initial WordPress project installation and setup
 
 ## Found An Issue?
 
-If you come across any theme issues, please report them [here](https://github.com/jacobcassidy/ddev-wp-setup-script/issues).
+If you come across any issues, please report them [here](https://github.com/jacobcassidy/ddev-wp-setup-script/issues).
