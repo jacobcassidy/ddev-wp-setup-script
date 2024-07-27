@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Include user variables for WP installation
-source ${SCRIPTS_DIR}/config.sh
-
 # Download and install Wordpress
 printf "${BRIGHT_BLUE}Downloading WordPress...${RESET}\n"
 if ddev wp core is-installed > /dev/null 2>&1; then
@@ -60,27 +57,31 @@ else
 fi
 
 # Install All-In-One Migration plugin
-printf "${BRIGHT_BLUE}Installing All-In-One Migration plugin...${RESET}\n"
-PLUGIN_SLUG_AIOM='all-in-one-wp-migration'
+if $INSTALL_AIOM_PLUGIN; then
+  printf "${BRIGHT_BLUE}Installing All-In-One Migration plugin...${RESET}\n"
+  PLUGIN_SLUG_AIOM='all-in-one-wp-migration'
 
-if ddev wp plugin is-installed ${PLUGIN_SLUG_AIOM} > /dev/null 2>&1; then
-  PLUGIN_NAME_AIOM=$(ddev wp plugin get ${PLUGIN_SLUG_AIOM} --field=title)
-  printf "${BLUE}${PLUGIN_NAME_AIOM} is already installed. Skipping installation.${RESET}\n"
-else
-  ddev wp plugin install all-in-one-wp-migration --activate
+  if ddev wp plugin is-installed ${PLUGIN_SLUG_AIOM} > /dev/null 2>&1; then
+    PLUGIN_NAME_AIOM=$(ddev wp plugin get ${PLUGIN_SLUG_AIOM} --field=title)
+    printf "${BLUE}${PLUGIN_NAME_AIOM} is already installed. Skipping installation.${RESET}\n"
+  else
+    ddev wp plugin install all-in-one-wp-migration --activate
+  fi
 fi
 
 # Copy and install All-In-One Migration Unlimited Extension plugin from host machine.
-printf "${BRIGHT_BLUE}Installing All-In-One Migration Unlimited Extension plugin from local source...${RESET}\n"
-PLUGIN_SLUG_AIOMUE='all-in-one-wp-migration-unlimited-extension'
+if $INSTALL_LOCAL_AIOMUE_PLUGIN; then
+  printf "${BRIGHT_BLUE}Installing All-In-One Migration Unlimited Extension plugin from local source...${RESET}\n"
+  PLUGIN_SLUG_AIOMUE='all-in-one-wp-migration-unlimited-extension'
 
-if ddev wp plugin is-installed ${PLUGIN_SLUG_AIOMUE} > /dev/null 2>&1; then
-  PLUGIN_NAME_AIOMUE=$(ddev wp plugin get ${PLUGIN_SLUG_AIOMUE} --field=title)
-  printf "${BLUE}${PLUGIN_NAME_AIOMUE} is already installed. Skipping installation.${RESET}\n"
-else
-  unzip /Users/Jacob/Projects/Assets/Packages/WordPress/Plugins/All\ In\ One\ Migration\ Unlimited\ Extension/all-in-one-wp-migration-unlimited-extension_2.59.zip -x "__MACOSX/*" -d ./wp-content/plugins
-  printf "${BRIGHT_BLUE}Activating All-In-One Migration Unlimited Extension plugin...${RESET}\n"
-  ddev wp plugin activate all-in-one-wp-migration-unlimited-extension
+  if ddev wp plugin is-installed ${PLUGIN_SLUG_AIOMUE} > /dev/null 2>&1; then
+    PLUGIN_NAME_AIOMUE=$(ddev wp plugin get ${PLUGIN_SLUG_AIOMUE} --field=title)
+    printf "${BLUE}${PLUGIN_NAME_AIOMUE} is already installed. Skipping installation.${RESET}\n"
+  else
+    unzip /Users/Jacob/Projects/Assets/Packages/WordPress/Plugins/All\ In\ One\ Migration\ Unlimited\ Extension/all-in-one-wp-migration-unlimited-extension_2.59.zip -x "__MACOSX/*" -d ./wp-content/plugins
+    printf "${BRIGHT_BLUE}Activating All-In-One Migration Unlimited Extension plugin...${RESET}\n"
+    ddev wp plugin activate all-in-one-wp-migration-unlimited-extension
+  fi
 fi
 
 # Update the WP permalinks to use post name
