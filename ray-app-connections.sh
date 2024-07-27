@@ -39,9 +39,9 @@ if [ -f "ray.php" ]; then
   printf "${BLUE}The ray.php file already exists. Skipping creation.${RESET}\n"
 else
   # Copy/Paste file
-  cp ${FILES_DIR}/ray.php ./ray.php
+  cp ${FILES_DIR}/ray.php ./
   # Update file's local_path string
-  sed "s#LOCAL_PROJECT_DIR#${PROJECT_DIR}#g" ray.php > ray.tmp && mv ray.tmp ray.php
+  sed -i '' "s|LOCAL_PROJECT_DIR|${PROJECT_DIR}|g" ray.php
   # Print success message
   printf "${GREEN}File created at: ${BOLD}ray.php${RESET}\n"
 fi
