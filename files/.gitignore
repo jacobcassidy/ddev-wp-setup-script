@@ -1,6 +1,7 @@
 # IGNORE ENVIRONMENT FILES
 log
 ddev-wp-setup-script
+node_modules
 
 # IGNORE WORDPRESS CORE FILES
 wp-admin
