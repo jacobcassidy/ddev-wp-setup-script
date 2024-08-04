@@ -1,13 +1,14 @@
 #!/bin/bash
 
 # Variables
-SCRIPTS_DIR='ddev-wp-setup-script'
+ROOT_DIR='ddev-wp-setup-script'
+SCRIPTS_DIR="${ROOT_DIR}/scripts"
 
 # Get the script variables
 source ${SCRIPTS_DIR}/script-variables.sh
 
 # Get the script config settings
-source ${SCRIPTS_DIR}/config.sh
+source ${ROOT_DIR}/config.sh
 
 # Set DDEV containers configuration
 printf "${BRIGHT_BLUE}Setting DDEV configurations...${RESET}\n"

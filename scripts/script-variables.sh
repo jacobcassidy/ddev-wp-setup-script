@@ -1,5 +1,5 @@
 # Host machine directories.
-FILES_DIR="${SCRIPTS_DIR}/files"
+FILES_DIR="${ROOT_DIR}/files"
 PROJECT_DIR=$(pwd)
 
 # Get the project name from the project directory,
