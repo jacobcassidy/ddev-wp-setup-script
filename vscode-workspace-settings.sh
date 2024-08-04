@@ -10,7 +10,7 @@ else
   # Create the directories if they don't exist
   mkdir -p "$(dirname "$vscode_settings")"
   # Copy/Paste file
-  cp ${FILES_DIR}/settings.json .vscode/
+  cp ${FILES_DIR}/vscode-settings.json .vscode/settings.json
   # Print success message
   printf "${GREEN}File created at: ${BOLD}${vscode_settings}${RESET}\n"
 fi
