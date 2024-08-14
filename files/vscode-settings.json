@@ -2,7 +2,9 @@
 	"editor.formatOnSave": true,
 	"phpsab.standard": "WordPress",
 	"[php]": {
-		"editor.defaultFormatter": "valeryanm.vscode-phpsab"
+		"editor.defaultFormatter": "valeryanm.vscode-phpsab",
+		"editor.insertSpaces": false,
+		"editor.tabSize": 4
 	},
 	"search.exclude": {
 		"**.min.css": true,
