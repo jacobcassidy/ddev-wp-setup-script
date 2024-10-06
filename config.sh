@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Your WP site name
-WP_SITE_TITLE='CassidyWP Starter'
+WP_SITE_TITLE='CassidyWP Starter Block Theme'
 
 # Your WP login details
 WP_USER_NAME='example-name'
@@ -10,7 +10,7 @@ WP_USER_EMAIL='dev@example.com'
 
 # Theme Slugs
 DEFAULT_THEME_SLUG='twentytwentyfour'
-CUSTOM_THEME_SLUG='starter-theme'
+CUSTOM_THEME_SLUG='cassidywp-starter-block-theme'
 
 # TURN ON/OFF OTHER ASSETS:
 
@@ -28,3 +28,6 @@ INSTALL_VSCODE_SETTINGS=true
 
 # Local Git repo and .gitignore file for the project
 INSTALL_GIT=true
+
+# WordPress debugging settings with log file
+INSTALL_WP_DEBUG_SETTING=true
