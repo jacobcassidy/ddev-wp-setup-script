@@ -2,7 +2,7 @@
 
 ## 1.1.0
 
-_2024-10-04_
+_2024-10-06_
 
 -   Fixed WP debugging config settings getting overwritten when restarting DDEV with the addition of `wp-debug-log-setup-module.sh`.
 -   Added boolean option for installing WP Debug.
