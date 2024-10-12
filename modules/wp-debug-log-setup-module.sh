@@ -8,12 +8,14 @@ WP_ENV_SETTING="wp config set WP_ENVIRONMENT_TYPE local"
 WP_DEBUG_SETTING="wp config set WP_DEBUG true --raw"
 WP_DISPLAY_SETTING="wp config set WP_DEBUG_DISPLAY false --raw"
 WP_LOG_SETTING="wp config set WP_DEBUG_LOG 'log/wp-errors.log'"
+WP_DEVELOPMENT_MODE_SETTING="wp config set WP_DEVELOPMENT_MODE theme"
 
 # Add hooks to config.yaml
 HOOK="
 hooks:
   post-start:
     - exec: $WP_ENV_SETTING
+    - exec: $WP_DEVELOPMENT_MODE_SETTING
     - exec: $WP_DEBUG_SETTING
     - exec: $WP_DISPLAY_SETTING
     - exec: $WP_LOG_SETTING
@@ -28,6 +30,7 @@ elif grep -q "^hooks:" "$CONFIG_FILE"; then
   sed -i '' "/hooks:/a \\
   \ \ post-start:\\
   \ \ \ \ - exec: $WP_ENV_SETTING\\
+  \ \ \ \ - exec: $WP_DEVELOPMENT_MODE_SETTING
   \ \ \ \ - exec: $WP_DEBUG_SETTING\\
   \ \ \ \ - exec: $WP_DISPLAY_SETTING\\
   \ \ \ \ - exec: $WP_LOG_SETTING" "$CONFIG_FILE"
