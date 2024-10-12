@@ -12,22 +12,26 @@ WP_USER_EMAIL='dev@example.com'
 DEFAULT_THEME_SLUG='twentytwentyfour'
 CUSTOM_THEME_SLUG='cassidywp-starter-block-theme'
 
+# Environment Settings
+WP_ENVIRONMENT_TYPE='development'
+WP_DEVELOPMENT_MODE='theme'
+
 # TURN ON/OFF OTHER ASSETS:
 
-# All-in-One WP Migration plugin
+## All-in-One WP Migration plugin
 INSTALL_AIOM_PLUGIN=true
 
-# All-in-One WP Migration Unlimited Extension plugin from local machine
+## All-in-One WP Migration Unlimited Extension plugin from local machine
 INSTALL_LOCAL_AIOMUE_PLUGIN=true
 
-# Spatie Ray connection files to work with Docker containers
+## Spatie Ray connection files to work with Docker containers
 INSTALL_RAY_CONNECTIONS=true
 
-# VSCode workspace settings to follow WordPress coding standards
+## VSCode workspace settings to follow WordPress coding standards
 INSTALL_VSCODE_SETTINGS=true
 
-# Local Git repo and .gitignore file for the project
+## Local Git repo and .gitignore file for the project
 INSTALL_GIT=true
 
-# WordPress debugging settings with log file
+## WordPress debugging settings with log file
 INSTALL_WP_DEBUG_SETTING=true

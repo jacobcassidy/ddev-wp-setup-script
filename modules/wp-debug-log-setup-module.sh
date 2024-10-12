@@ -4,15 +4,15 @@
 printf "${BLUE}Setting WordPress Debug Configurations...${RESET}\n"
 
 CONFIG_FILE=".ddev/config.yaml"
-WP_ENV_SETTING="wp config set WP_ENVIRONMENT_TYPE local"
+WP_ENV_SETTING="wp config set WP_ENVIRONMENT_TYPE ${WP_ENVIRONMENT_TYPE}"
 WP_DEBUG_SETTING="wp config set WP_DEBUG true --raw"
 WP_DISPLAY_SETTING="wp config set WP_DEBUG_DISPLAY false --raw"
 WP_LOG_SETTING="wp config set WP_DEBUG_LOG 'log/wp-errors.log'"
-WP_DEVELOPMENT_MODE_SETTING="wp config set WP_DEVELOPMENT_MODE theme"
+WP_DEVELOPMENT_MODE_SETTING="wp config set WP_DEVELOPMENT_MODE ${WP_DEVELOPMENT_MODE}"
 
 # Add hooks to config.yaml
 HOOK="
-hooks:
+hooks:6
   post-start:
     - exec: $WP_ENV_SETTING
     - exec: $WP_DEVELOPMENT_MODE_SETTING
