@@ -12,7 +12,7 @@ WP_DEVELOPMENT_MODE_SETTING="wp config set WP_DEVELOPMENT_MODE ${WP_DEVELOPMENT_
 
 # Add hooks to config.yaml
 HOOK="
-hooks:6
+hooks:
   post-start:
     - exec: $WP_ENV_SETTING
     - exec: $WP_DEVELOPMENT_MODE_SETTING
