@@ -1,5 +1,11 @@
 # Changelog for `ddev-wp-setup-script`
 
+## 1.2.0
+
+_2024-11-11_
+
+- Added `.dev-assets`, `.env` and `vendor` to .gitignore list.
+
 ## 1.1.0
 
 _2024-10-06_
