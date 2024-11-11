@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Get the script constants
-source ddev-wp-setup-script/constants.sh
+source ddev-wp-setup-script/modules/constants.sh
 
 # Get the script config settings
 source ${SCRIPT_DIR}/config.sh

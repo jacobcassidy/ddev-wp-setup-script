@@ -4,7 +4,8 @@
 
 _2024-11-11_
 
-- Added `.dev-assets`, `.env` and `vendor` to .gitignore list.
+-   Added `.dev-assets`, `.env` and `vendor` to .gitignore list.
+-   Moved `constants.sh` inside `/modules`.
 
 ## 1.1.0
 
