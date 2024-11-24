@@ -9,7 +9,7 @@ WP_USER_PASS='example-password'
 WP_USER_EMAIL='dev@example.com'
 
 # Theme Slugs
-DEFAULT_THEME_SLUG='twentytwentyfour'
+DEFAULT_THEME_SLUG='twentytwentyfive'
 CUSTOM_THEME_SLUG='cassidywp-starter-block-theme'
 
 # Environment Settings
