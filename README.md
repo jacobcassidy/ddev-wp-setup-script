@@ -39,6 +39,7 @@ This script automatically sets up the following (any of which can be opted-out o
 -   Installs the [All-in-One WP Migration plugin](https://wordpress.org/plugins/all-in-one-wp-migration/).
 -   Installs the [All-in-One WP Migration Unlimited Extension plugin](https://servmask.com/products/unlimited-extension).
     -   _Note: this plugin is not free and is sourced from your local machine since it's unavailable through the official WP plugin directory. You can turn the installation off in the `config.sh` file if you don't have this plugin._
+-   Installs the [Query Monitor plugin](https://wordpress.org/plugins/query-monitor/).
 -   Installs the files needed to connect the DDEV Docker containers with the [Spatie Ray](https://myray.app/) desktop app for simple debugging.
 -   Initializes a local project Git repo and adds a `.gitignore` file.
 -   Adds a VSCode Workspace `.vscode/settings.json` file to include formatting rules to match WordPress's official coding standards.
