@@ -10,7 +10,7 @@ else
 
   # Install WordPress
   printf "${BLUE}Installing WordPress...${RESET}\n"
-  ddev wp core install --url="$DDEV_PRIMARY_URL" --title="$WP_SITE_TITLE" --admin_user="$WP_USER_NAME" --admin_password="$WP_USER_PASS" --admin_email="$WP_USER_EMAIL"
+  ddev wp core install --url="$DDEV_PRIMARY_URL" --title="${WP_SITE_TITLE:-$PROJECT_TITLE}" --admin_user="$WP_USER_NAME" --admin_password="$WP_USER_PASS" --admin_email="$WP_USER_EMAIL"
 fi
 
 # Install default theme
