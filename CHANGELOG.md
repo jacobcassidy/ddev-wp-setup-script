@@ -5,7 +5,7 @@
 _2024-11-25_
 
 -   Fixed broken AIOMUE plugin unzip path.
--   Updated $WP_SITE_TITLE with default name and override option.
+-   Updated `$WP_SITE_TITLE` with default name and override option.
 
 ## 1.3.3
 
