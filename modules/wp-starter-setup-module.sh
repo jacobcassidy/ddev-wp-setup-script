@@ -39,7 +39,7 @@ else
   printf "${BLUE}Removing cloned remote Git for ${CUSTOM_THEME_NAME}...${RESET}\n"
   git -C wp-content/themes/${CUSTOM_THEME_SLUG} remote remove origin
   # Print success message
-  printf "${GREEN}Cloned remote Git connection removed for ${CUSTOM_THEME_NAME}.${RESET}\n"
+  printf "${GREEN}Removed cloned remote Git connection for ${CUSTOM_THEME_NAME}.${RESET}\n"
 fi
 
 # Install All-In-One Migration plugin
