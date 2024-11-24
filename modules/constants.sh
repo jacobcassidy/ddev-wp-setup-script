@@ -7,6 +7,7 @@ PROJECT_DIR=$(pwd)
 # Get the project name from the project directory,
 # minus the any leading non-alphanumeric characters and trailing `.ddev.site`, if any.
 PROJECT_NAME=$(basename "$PROJECT_DIR" | sed 's:^[^a-zA-Z0-9]*::;s:\.ddev\.site$::')
+PROJECT_NAME_SLUG=$(echo "$PROJECT_NAME" | sed 's/[[:space:]]/-/g' | tr '[:upper:]' '[:lower:]')
 
 # Terminal Base Colors
 BLACK='\033[0;30m'

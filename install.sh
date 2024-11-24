@@ -8,7 +8,7 @@ source ${SCRIPT_DIR}/config.sh
 
 # Set DDEV containers configuration
 printf "${BLUE}Setting DDEV configurations...${RESET}\n"
-ddev config --project-type=wordpress --project-name=$PROJECT_NAME
+ddev config --project-type=wordpress --project-name=$PROJECT_NAME_SLUG
 
 # Add Spatie Ray app files for development env.
 if $INSTALL_RAY_CONNECTIONS; then
@@ -32,7 +32,7 @@ fi
 
 # Build and start the project's Docker containers.
 printf "${BLUE}Starting DDEV containers...${RESET}\n"
-ddev start $PROJECT_NAME
+ddev start $PROJECT_NAME_SLUG
 
 # Install and set up WordPress for development.
 source ${MODULES_DIR}/wp-starter-setup-module.sh
