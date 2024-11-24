@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Your WP site name (defaults to the project name. Uncomment the following line to set a custom name.)
+# Your WP site name. Defaults to the project name. Uncomment the following line to set a custom name.
 # WP_SITE_TITLE='Example'
 
 # Your WP login details
