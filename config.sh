@@ -17,7 +17,7 @@ DEFAULT_THEME_SLUG='twentytwentyfive'
 STARTER_THEME_SLUG='cassidywp-starter-block-theme'
 
 # Local path to the All-in-One WP Migration Unlimited Extension plugin
-LOCAL_AIOMUE_PATH='/Users/Jacob/Projects/Assets/Packages/WordPress/Plugins/All\ In\ One\ Migration\ Unlimited\ Extension/all-in-one-wp-migration-unlimited-extension_2.59.zip'
+LOCAL_AIOMUE_PATH='/Users/Jacob/Projects/Assets/Packages/WordPress/Plugins/All In One Migration Unlimited Extension/all-in-one-wp-migration-unlimited-extension_2.59.zip'
 
 # TURN ON/OFF ASSETS:
 

@@ -68,7 +68,7 @@ if $INSTALL_LOCAL_AIOMUE_PLUGIN; then
     PLUGIN_NAME_AIOMUE=$(ddev wp plugin get ${PLUGIN_SLUG_AIOMUE} --field=title)
     printf "${YELLOW}${PLUGIN_NAME_AIOMUE} is already installed. Skipping installation.${RESET}\n"
   else
-    unzip $LOCAL_AIOMUE_PATH -x "__MACOSX/*" -d ./wp-content/plugins
+    unzip "$LOCAL_AIOMUE_PATH" -x "__MACOSX/*" -d ./wp-content/plugins
     printf "${BLUE}Activating All-In-One Migration Unlimited Extension plugin...${RESET}\n"
     ddev wp plugin activate $PLUGIN_SLUG_AIOMUE
   fi
