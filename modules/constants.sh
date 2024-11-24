@@ -9,7 +9,7 @@ PROJECT_DIR=$(pwd)
 PROJECT_NAME=$(basename "$PROJECT_DIR" | sed 's:^[^a-zA-Z0-9]*::;s:\.ddev\.site$::')
 
 # Replace any $PROJECT_NAME hyphens with spaces and capitalize the first letter of each word.
-PROJECT_TITLE=$(echo "$PROJECT_NAME" | sed 's/-/ /g' | sed 's/\b\(.\)/\u\1/g')
+PROJECT_TITLE=$(echo "$PROJECT_NAME" | sed 's/-/ /g' | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2))} 1')
 
 # Replace any $PROJECT_NAME spaces with hyphens and convert to lowercase.
 PROJECT_NAME_SLUG=$(echo "$PROJECT_NAME" | sed 's/[[:space:]]/-/g' | tr '[:upper:]' '[:lower:]')
