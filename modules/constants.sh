@@ -4,9 +4,14 @@ MODULES_DIR="${SCRIPT_DIR}/modules"
 FILES_DIR="${SCRIPT_DIR}/files"
 PROJECT_DIR=$(pwd)
 
-# Get the project name from the project directory,
-# minus the any leading non-alphanumeric characters and trailing `.ddev.site`, if any.
+# Get the project name from the project directory, minus any leading
+# non-alphanumeric characters and trailing `.ddev.site`.
 PROJECT_NAME=$(basename "$PROJECT_DIR" | sed 's:^[^a-zA-Z0-9]*::;s:\.ddev\.site$::')
+
+# Replace any $PROJECT_NAME hyphens with spaces and capitalize the first letter of each word.
+PROJECT_TITLE=$(echo "$PROJECT_NAME" | sed 's/-/ /g' | sed 's/\b\(.\)/\u\1/g')
+
+# Replace any $PROJECT_NAME spaces with hyphens and convert to lowercase.
 PROJECT_NAME_SLUG=$(echo "$PROJECT_NAME" | sed 's/[[:space:]]/-/g' | tr '[:upper:]' '[:lower:]')
 
 # Terminal Base Colors

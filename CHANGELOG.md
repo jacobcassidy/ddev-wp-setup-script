@@ -1,5 +1,12 @@
 # Changelog for `ddev-wp-setup-script`
 
+## 1.3.1
+
+_2024-11-24_
+
+-   Added the `$PROJECT_TITLE` variable.
+-   Updated `$WP_SITE_TITLE` to use `$PROJECT_TITLE` variable.
+
 ## 1.3.0
 
 _2024-11-24_
