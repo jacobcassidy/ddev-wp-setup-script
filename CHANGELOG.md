@@ -1,5 +1,13 @@
 # Changelog for `ddev-wp-setup-script`
 
+## 1.3.2
+
+_2024-11-24_
+
+-   Added boolean install options for default and starter themes.
+-   Fixed the `$PROJECT_TITLE` value by using `awk` for capitalizing the first letter of each word.
+-   Updated the README to improve ability to quickly scan for the commands.
+
 ## 1.3.1
 
 _2024-11-24_
