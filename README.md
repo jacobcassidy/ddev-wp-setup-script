@@ -6,9 +6,9 @@ Use this installation script to automatically setup a clean WordPress environmen
 
 _Note: [DDEV](https://ddev.com/) needs to be installed in order for the installation script to work._
 
-**Step 1: [Clone This Repo](https://github.com/jacobcassidy/ddev-wp-setup-script) with `git clone git@github.com:jacobcassidy/ddev-wp-setup-script.git`**
+**Step 1: Clone the repo with `git clone git@github.com:jacobcassidy/ddev-wp-setup-script.git`**
 
--   You should clone this repo to your (preferably empty) project root directory.
+-   You should clone the [repo](https://github.com/jacobcassidy/ddev-wp-setup-script) to your (preferably empty) project root directory.
 
 **Step 2: Update the configuration settings found in `ddev-wp-setup-script/config.sh`**
 
