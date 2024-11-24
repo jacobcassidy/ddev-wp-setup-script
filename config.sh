@@ -8,15 +8,21 @@ WP_USER_NAME='example-name'
 WP_USER_PASS='example-password'
 WP_USER_EMAIL='dev@example.com'
 
-# Theme Slugs
-DEFAULT_THEME_SLUG='twentytwentyfive'
-CUSTOM_THEME_SLUG='cassidywp-starter-block-theme'
-
 # Environment Settings
 WP_ENVIRONMENT_TYPE='development'
 WP_DEVELOPMENT_MODE='theme'
 
+# Theme Slugs
+DEFAULT_THEME_SLUG='twentytwentyfive'
+STARTER_THEME_SLUG='cassidywp-starter-block-theme'
+
 # TURN ON/OFF OTHER ASSETS:
+
+## Official Default WordPress Theme
+INSTALL_DEFAULT_THEME=true
+
+## CassidyWP Starter Block Theme
+INSTALL_STARTER_THEME=true
 
 ## All-in-One WP Migration plugin
 INSTALL_AIOM_PLUGIN=true

@@ -14,32 +14,36 @@ else
 fi
 
 # Install default theme
-printf "${BLUE}Installing ${DEFAULT_THEME_SLUG} theme...${RESET}\n"
+if $INSTALL_DEFAULT_THEME; then
+  printf "${BLUE}Installing ${DEFAULT_THEME_SLUG} theme...${RESET}\n"
 
-if ddev wp theme is-installed ${DEFAULT_THEME_SLUG} > /dev/null 2>&1; then
-  DEFAULT_THEME_NAME=$(ddev wp theme get ${DEFAULT_THEME_SLUG} --field=name)
-  printf "${YELLOW}${DEFAULT_THEME_NAME} is already installed. Skipping installation.${RESET}\n"
-else
-  ddev wp theme install $DEFAULT_THEME_SLUG
+  if ddev wp theme is-installed ${DEFAULT_THEME_SLUG} > /dev/null 2>&1; then
+    DEFAULT_THEME_NAME=$(ddev wp theme get ${DEFAULT_THEME_SLUG} --field=name)
+    printf "${YELLOW}${DEFAULT_THEME_NAME} is already installed. Skipping installation.${RESET}\n"
+  else
+    ddev wp theme install $DEFAULT_THEME_SLUG
+  fi
 fi
 
-# Install and activate CassidyWP Starter Block Theme with custom theme slug
-if ddev wp theme is-installed ${CUSTOM_THEME_SLUG} > /dev/null 2>&1; then
-  CUSTOM_THEME_NAME=$(ddev wp theme get ${CUSTOM_THEME_SLUG} --field=name)
-  printf "${BLUE}Installing ${CUSTOM_THEME_NAME}...${RESET}\n"
-  printf "${YELLOW}${CUSTOM_THEME_NAME} is already installed. Skipping installation.${RESET}\n"
-else
-  printf "${BLUE}Creating ${CUSTOM_THEME_SLUG} directory...${RESET}\n"
-  git clone git@github.com:jacobcassidy/cassidywp-starter-block-theme.git wp-content/themes/${CUSTOM_THEME_SLUG}
-  CUSTOM_THEME_NAME=$(ddev wp theme get ${CUSTOM_THEME_SLUG} --field=name)
-  printf "${BLUE}Installing ${CUSTOM_THEME_NAME}...${RESET}\n"
-  ddev wp theme activate ${CUSTOM_THEME_SLUG}
+# Install and activate CassidyWP Starter Block Theme
+if $INSTALL_STARTER_THEME; then
+  if ddev wp theme is-installed ${STARTER_THEME_SLUG} > /dev/null 2>&1; then
+    CUSTOM_THEME_NAME=$(ddev wp theme get ${STARTER_THEME_SLUG} --field=name)
+    printf "${BLUE}Installing ${CUSTOM_THEME_NAME}...${RESET}\n"
+    printf "${YELLOW}${CUSTOM_THEME_NAME} is already installed. Skipping installation.${RESET}\n"
+  else
+    printf "${BLUE}Creating ${STARTER_THEME_SLUG} directory...${RESET}\n"
+    git clone git@github.com:jacobcassidy/cassidywp-starter-block-theme.git wp-content/themes/${STARTER_THEME_SLUG}
+    CUSTOM_THEME_NAME=$(ddev wp theme get ${STARTER_THEME_SLUG} --field=name)
+    printf "${BLUE}Installing ${CUSTOM_THEME_NAME}...${RESET}\n"
+    ddev wp theme activate ${STARTER_THEME_SLUG}
 
-  # Remove remote Git connection to CassidyWP Starter Block Theme repo.
-  printf "${BLUE}Removing cloned remote Git for ${CUSTOM_THEME_NAME}...${RESET}\n"
-  git -C wp-content/themes/${CUSTOM_THEME_SLUG} remote remove origin
-  # Print success message
-  printf "${GREEN}Removed cloned remote Git connection for ${CUSTOM_THEME_NAME}.${RESET}\n"
+    # Remove remote Git connection to CassidyWP Starter Block Theme repo.
+    printf "${BLUE}Removing cloned remote Git for ${CUSTOM_THEME_NAME}...${RESET}\n"
+    git -C wp-content/themes/${STARTER_THEME_SLUG} remote remove origin
+    # Print success message
+    printf "${GREEN}Removed cloned remote Git connection for ${CUSTOM_THEME_NAME}.${RESET}\n"
+  fi
 fi
 
 # Install All-In-One Migration plugin
