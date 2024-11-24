@@ -1,5 +1,15 @@
 # Changelog for `ddev-wp-setup-script`
 
+## 1.3.0
+
+_2024-11-24_
+
+-   Added `PROJECT_NAME_SLUG` variable for ddev project name that replace whitespace with dashes and uppercase letters with lowercase letters in the `$PROJECT_NAME` variable.
+-   Updated `$WP_SITE_TITLE` to use `$PROJECT_NAME` variable.
+-   Updated `DEFAULT_THEME_SLUG` value to `twentytwentyfive`.
+-   Updated `PROJECT_NAME` logic to remove any leading symbols.
+-   Updated cloned git removal message.
+
 ## 1.2.0
 
 _2024-11-11_
