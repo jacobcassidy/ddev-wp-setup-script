@@ -5,8 +5,8 @@ FILES_DIR="${SCRIPT_DIR}/files"
 PROJECT_DIR=$(pwd)
 
 # Get the project name from the project directory,
-# minus the leading `~` and trailing `.ddev.site`, if any.
-PROJECT_NAME=$(basename "$PROJECT_DIR" | sed 's:^~::;s:\.ddev\.site$::')
+# minus the any leading non-alphanumeric characters and trailing `.ddev.site`, if any.
+PROJECT_NAME=$(basename "$PROJECT_DIR" | sed 's:^[^a-zA-Z0-9]*::;s:\.ddev\.site$::')
 
 # Terminal Base Colors
 BLACK='\033[0;30m'
