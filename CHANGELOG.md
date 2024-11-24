@@ -1,5 +1,11 @@
 # Changelog for `ddev-wp-setup-script`
 
+## 1.3.4
+
+_2024-11-25_
+
+-   Fixed broken AIOMUE plugin unzip path.
+
 ## 1.3.3
 
 _2024-11-25_
