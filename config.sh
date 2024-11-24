@@ -16,7 +16,10 @@ WP_DEVELOPMENT_MODE='theme'
 DEFAULT_THEME_SLUG='twentytwentyfive'
 STARTER_THEME_SLUG='cassidywp-starter-block-theme'
 
-# TURN ON/OFF OTHER ASSETS:
+# Local path to the All-in-One WP Migration Unlimited Extension plugin
+LOCAL_AIOMUE_PATH='/Users/Jacob/Projects/Assets/Packages/WordPress/Plugins/All\ In\ One\ Migration\ Unlimited\ Extension/all-in-one-wp-migration-unlimited-extension_2.59.zip'
+
+# TURN ON/OFF ASSETS:
 
 ## Official Default WordPress Theme
 INSTALL_DEFAULT_THEME=true
@@ -29,6 +32,9 @@ INSTALL_AIOM_PLUGIN=true
 
 ## All-in-One WP Migration Unlimited Extension plugin from local machine
 INSTALL_LOCAL_AIOMUE_PLUGIN=true
+
+## Query Monitor plugin
+INSTALL_QUERY_MONITOR_PLUGIN=true
 
 ## Spatie Ray connection files to work with Docker containers
 INSTALL_RAY_CONNECTIONS=true

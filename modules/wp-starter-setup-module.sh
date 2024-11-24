@@ -55,7 +55,7 @@ if $INSTALL_AIOM_PLUGIN; then
     PLUGIN_NAME_AIOM=$(ddev wp plugin get ${PLUGIN_SLUG_AIOM} --field=title)
     printf "${YELLOW}${PLUGIN_NAME_AIOM} is already installed. Skipping installation.${RESET}\n"
   else
-    ddev wp plugin install all-in-one-wp-migration --activate
+    ddev wp plugin install $PLUGIN_SLUG_AIOM --activate
   fi
 fi
 
@@ -68,9 +68,22 @@ if $INSTALL_LOCAL_AIOMUE_PLUGIN; then
     PLUGIN_NAME_AIOMUE=$(ddev wp plugin get ${PLUGIN_SLUG_AIOMUE} --field=title)
     printf "${YELLOW}${PLUGIN_NAME_AIOMUE} is already installed. Skipping installation.${RESET}\n"
   else
-    unzip /Users/Jacob/Projects/Assets/Packages/WordPress/Plugins/All\ In\ One\ Migration\ Unlimited\ Extension/all-in-one-wp-migration-unlimited-extension_2.59.zip -x "__MACOSX/*" -d ./wp-content/plugins
+    unzip $LOCAL_AIOMUE_PATH -x "__MACOSX/*" -d ./wp-content/plugins
     printf "${BLUE}Activating All-In-One Migration Unlimited Extension plugin...${RESET}\n"
-    ddev wp plugin activate all-in-one-wp-migration-unlimited-extension
+    ddev wp plugin activate $PLUGIN_SLUG_AIOMUE
+  fi
+fi
+
+# Install Query Monitor plugin
+if $INSTALL_QUERY_MONITOR_PLUGIN; then
+  printf "${BLUE}Installing Query Monitor plugin...${RESET}\n"
+  PLUGIN_SLUG_QM='query-monitor'
+
+  if ddev wp plugin is-installed ${PLUGIN_SLUG_QM} > /dev/null 2>&1; then
+    PLUGIN_NAME_QM=$(ddev wp plugin get ${PLUGIN_SLUG_QM} --field=title)
+    printf "${YELLOW}${PLUGIN_NAME_QM} is already installed. Skipping installation.${RESET}\n"
+  else
+    ddev wp plugin install $PLUGIN_SLUG_QM --activate
   fi
 fi
 
