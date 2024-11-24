@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Your WP site name
-WP_SITE_TITLE='CassidyWP Starter Block Theme'
+WP_SITE_TITLE=$PROJECT_NAME
 
 # Your WP login details
 WP_USER_NAME='example-name'
