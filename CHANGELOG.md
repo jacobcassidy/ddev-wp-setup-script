@@ -1,5 +1,11 @@
 # Changelog for `ddev-wp-setup-script`
 
+## 1.3.3
+
+_2024-11-25_
+
+-   Added installation option for Query Monitor plugin and AIOMUE local path variable.
+
 ## 1.3.2
 
 _2024-11-24_
