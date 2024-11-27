@@ -1,5 +1,11 @@
 # Changelog for `ddev-wp-setup-script`
 
+## 1.4.1
+
+_2024-11-27_
+
+-   Updated configuration file to have individual controls for WP debugging and env settings.
+
 ## 1.4.0
 
 _2024-11-27_
