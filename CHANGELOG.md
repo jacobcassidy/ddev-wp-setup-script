@@ -1,5 +1,11 @@
 # Changelog for `ddev-wp-setup-script`
 
+## 1.5.0
+
+_2024-11-28_
+
+-   Added setting to remove default WordPress dashboard widgets and welcome panel.
+
 ## 1.4.1
 
 _2024-11-27_
