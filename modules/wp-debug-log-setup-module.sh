@@ -43,16 +43,19 @@ else
   printf "${GREEN}Added WP Debug post-start hooks in: ${BOLD}${CONFIG_FILE}${RESET}.\n"
 fi
 
-LOG_DIR=$(dirname "$LOG_DIR_VALUE")
+LOG_DIR="$(dirname "$LOG_DIR_VALUE")"
 
 # Create log directory if it doesn't exist
-if $LOG_DIR; then
-  printf "${BLUE}Creating log directory...${RESET}\n"
-  if [ -d $LOG_DIR ]; then
-    printf "${YELLOW}The '/log' directory already exists. Skipping creation.${RESET}\n"
+if [ -n "$LOG_DIR" ]; then
+  printf "${BLUE}Creating $LOG_DIR directory...${RESET}\n"
+  if [ -d "$LOG_DIR" ]; then
+    printf "${YELLOW}The '$LOG_DIR' directory already exists. Skipping creation.${RESET}\n"
   else
-    mkdir $LOG_DIR;
+    mkdir -p "$LOG_DIR"
     # Print success message
-    printf "${GREEN}New directory created at: ${BOLD}/${LOG_DIR}${RESET}\n"
+    printf "${GREEN}New directory created at: ${BOLD}${LOG_DIR}${RESET}\n"
   fi
+else
+  printf "${RED}LOG_DIR_VALUE is not set. Skipping directory creation.${RESET}\n"
 fi
+
