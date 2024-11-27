@@ -7,6 +7,7 @@ CONFIG_FILE=".ddev/config.yaml"
 WP_ENV_SETTING="wp config set WP_ENVIRONMENT_TYPE ${WP_ENVIRONMENT_TYPE}"
 WP_DEBUG_SETTING="wp config set WP_DEBUG true --raw"
 WP_DISPLAY_SETTING="wp config set WP_DEBUG_DISPLAY false --raw"
+WP_SCRIPT_DEBUG_SETTING="wp config set SCRIPT_DEBUG true --raw"
 WP_LOG_SETTING="wp config set WP_DEBUG_LOG 'log/wp-errors.log'"
 WP_DEVELOPMENT_MODE_SETTING="wp config set WP_DEVELOPMENT_MODE ${WP_DEVELOPMENT_MODE}"
 
@@ -18,6 +19,7 @@ hooks:
     - exec: $WP_DEVELOPMENT_MODE_SETTING
     - exec: $WP_DEBUG_SETTING
     - exec: $WP_DISPLAY_SETTING
+    - exec: $WP_SCRIPT_DEBUG_SETTING
     - exec: $WP_LOG_SETTING
 "
 
@@ -33,6 +35,7 @@ elif grep -q "^hooks:" "$CONFIG_FILE"; then
   \ \ \ \ - exec: $WP_DEVELOPMENT_MODE_SETTING
   \ \ \ \ - exec: $WP_DEBUG_SETTING\\
   \ \ \ \ - exec: $WP_DISPLAY_SETTING\\
+  \ \ \ \ - exec: $WP_SCRIPT_DEBUG_SETTING\\
   \ \ \ \ - exec: $WP_LOG_SETTING" "$CONFIG_FILE"
   printf "${GREEN}Added post-start hooks in: ${BOLD}${CONFIG_FILE}${RESET}.\n"
 else
