@@ -21,37 +21,37 @@ LOCAL_AIOMUE_PATH='/Users/Jacob/Projects/Assets/Packages/WordPress/Plugins/All I
 
 ## THEMES
 
-### Install Official Default WordPress Theme
+### Installs official Default WordPress Theme
 INSTALL_DEFAULT_THEME=true
 
-### Install CassidyWP Starter Block Theme
+### Installs CassidyWP Starter Block Theme
 INSTALL_STARTER_THEME=true
 
 ## PLUGINS
 
-### Install All-in-One WP Migration plugin
+### Installs All-in-One WP Migration plugin
 INSTALL_AIOM_PLUGIN=true
 
-### Install All-in-One WP Migration Unlimited Extension plugin from local machine zip file
+### Installs All-in-One WP Migration Unlimited Extension plugin from local machine zip file
 INSTALL_LOCAL_AIOMUE_PLUGIN=true
 
-### Install Query Monitor plugin
+### Installs Query Monitor plugin
 INSTALL_QUERY_MONITOR_PLUGIN=true
 
 ## FILES
 
-### Install Spatie Ray connection files to work with Docker containers
+### Installs Spatie Ray connection files to work with Docker containers
 INSTALL_RAY_CONNECTIONS=true
 
-### Install VSCode workspace settings file to follow WordPress coding standards
+### Installs VSCode workspace settings file to follow WordPress coding standards
 INSTALL_VSCODE_SETTINGS=true
 
-### Install local Git repo and .gitignore file for the project
+### Installs local Git repo and .gitignore file for the project
 INSTALL_GIT=true
 
 ## DEBUGGING
 
-### WordPress debugging settings with log file
+### Adds WordPress debugging and env settings
 INSTALL_WP_DEBUG_SETTING=true
 
 ### Set values for WP debugging and env settings
