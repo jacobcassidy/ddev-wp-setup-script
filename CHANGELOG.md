@@ -5,6 +5,7 @@
 _2024-11-27_
 
 -   Updated configuration file to have individual controls for WP debugging and env settings.
+-   Updated log directory creation logic to be dynamic.
 
 ## 1.4.0
 
