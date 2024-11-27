@@ -115,9 +115,6 @@ if $HIDE_DASHBOARD_WIDGETS; then
   ddev wp user meta update 1 show_welcome_panel 0
 fi
 
-
-
-
 # Delete Hello World post
 # ddev wp post exists 1 > /dev/null 2>&1 && ddev wp post delete 1 --force
 printf "${BLUE}Deleting WordPress' default 'Hello, World' post...${RESET}\n"
