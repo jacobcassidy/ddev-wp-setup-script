@@ -1,5 +1,11 @@
 # Changelog for `ddev-wp-setup-script`
 
+## 1.4.0
+
+_2024-11-27_
+
+-   Added `SCRIPT_DEBUG` to setup.
+
 ## 1.3.4
 
 _2024-11-25_
