@@ -38,6 +38,11 @@ INSTALL_LOCAL_AIOMUE_PLUGIN=true
 ### Installs Query Monitor plugin
 INSTALL_QUERY_MONITOR_PLUGIN=true
 
+## WIDGETS
+
+### Hides default WordPress dashboard widgets for user 1
+HIDE_DASHBOARD_WIDGETS=true
+
 ## FILES
 
 ### Installs Spatie Ray connection files to work with Docker containers

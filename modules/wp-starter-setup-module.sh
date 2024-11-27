@@ -96,6 +96,28 @@ else
   ddev wp rewrite structure '/%postname%'
 fi
 
+# Hide default WordPress dashboard widgets
+if $HIDE_DASHBOARD_WIDGETS; then
+  printf "${BLUE}Hiding default WordPress dashboard widgets...${RESET}\n"
+  ddev wp eval 'update_user_meta(
+      1,
+      "metaboxhidden_dashboard",
+      array(
+          "dashboard_right_now",
+          "dashboard_activity",
+          "dashboard_site_health",
+          "dashboard_quick_press",
+          "dashboard_primary"
+      )
+  );
+  '
+  # Hide the welcome panel
+  ddev wp user meta update 1 show_welcome_panel 0
+fi
+
+
+
+
 # Delete Hello World post
 # ddev wp post exists 1 > /dev/null 2>&1 && ddev wp post delete 1 --force
 printf "${BLUE}Deleting WordPress' default 'Hello, World' post...${RESET}\n"
