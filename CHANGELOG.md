@@ -5,6 +5,7 @@
 _2024-11-28_
 
 -   Added `$HIDE_DASHBOARD_WIDGETS` setting to remove default WordPress dashboard widgets and welcome panel.
+-   Updated `README.md` content for clarity.
 
 ## 1.4.1
 
