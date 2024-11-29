@@ -1,5 +1,13 @@
 # Changelog for `ddev-wp-setup-script`
 
+## 1.6.0
+
+_2024-11-29_
+
+-   Added check that email address is valid before running install script.
+-   Separated WP download and install processes and included relevant messages.
+-   Updated custom yellow terminal messages with black.
+
 ## 1.5.0
 
 _2024-11-28_
