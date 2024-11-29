@@ -6,6 +6,12 @@ source ddev-wp-setup-script/modules/constants.sh
 # Get the script config settings
 source ${SCRIPT_DIR}/config.sh
 
+# Confirm WP_USER_EMAIL is a valid email address before proceeding
+if ! [[ "$WP_USER_EMAIL" =~ ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$ ]]; then
+  printf "${BRIGHT_RED}${WP_USER_EMAIL}${RESET}${RED} is not a valid email address. Please update the ${BRIGHT_RED}WP_USER_EMAIL${RESET}${RED} setting in ${BRIGHT_RED}config.sh${RESET}${RED} with a valid email address and rerun the install script.${RESET}\n"
+  exit 1
+fi
+
 # Set DDEV containers configuration
 printf "${BLUE}Setting DDEV configurations...${RESET}\n"
 ddev config --project-type=wordpress --project-name=$PROJECT_NAME_SLUG
