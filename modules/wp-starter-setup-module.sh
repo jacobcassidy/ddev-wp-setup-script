@@ -2,14 +2,20 @@
 
 # Download and install Wordpress
 printf "${BLUE}Downloading WordPress...${RESET}\n"
-if ddev wp core is-installed > /dev/null 2>&1; then
-  printf "${YELLOW}Wordpress is already installed. Skipping download and installation.${RESET}\n"
+
+if ddev wp core version> /dev/null 2>&1; then
+  printf "${BLACK}Wordpress is already downloaded. Skipping download.${RESET}\n"
 else
   # Download WordPress without themes or plugins
   ddev wp core download --skip-content
+fi
 
-  # Install WordPress
-  printf "${BLUE}Installing WordPress...${RESET}\n"
+# Install WordPress
+printf "${BLUE}Installing WordPress...${RESET}\n"
+
+if ddev wp core is-installed > /dev/null 2>&1; then
+  printf "${BLACK}WordPress is already installed. Skipping installation.${RESET}\n"
+else
   ddev wp core install --url="$DDEV_PRIMARY_URL" --title="${WP_SITE_TITLE:-$PROJECT_TITLE}" --admin_user="$WP_USER_NAME" --admin_password="$WP_USER_PASS" --admin_email="$WP_USER_EMAIL"
 fi
 
