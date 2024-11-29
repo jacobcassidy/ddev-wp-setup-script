@@ -25,7 +25,7 @@ if $INSTALL_DEFAULT_THEME; then
 
   if ddev wp theme is-installed ${DEFAULT_THEME_SLUG} > /dev/null 2>&1; then
     DEFAULT_THEME_NAME=$(ddev wp theme get ${DEFAULT_THEME_SLUG} --field=name)
-    printf "${YELLOW}${DEFAULT_THEME_NAME} is already installed. Skipping installation.${RESET}\n"
+    printf "${BLACK}${DEFAULT_THEME_NAME} is already installed. Skipping installation.${RESET}\n"
   else
     ddev wp theme install $DEFAULT_THEME_SLUG
   fi
@@ -36,7 +36,7 @@ if $INSTALL_STARTER_THEME; then
   if ddev wp theme is-installed ${STARTER_THEME_SLUG} > /dev/null 2>&1; then
     CUSTOM_THEME_NAME=$(ddev wp theme get ${STARTER_THEME_SLUG} --field=name)
     printf "${BLUE}Installing ${CUSTOM_THEME_NAME}...${RESET}\n"
-    printf "${YELLOW}${CUSTOM_THEME_NAME} is already installed. Skipping installation.${RESET}\n"
+    printf "${BLACK}${CUSTOM_THEME_NAME} is already installed. Skipping installation.${RESET}\n"
   else
     printf "${BLUE}Creating ${STARTER_THEME_SLUG} directory...${RESET}\n"
     git clone git@github.com:jacobcassidy/cassidywp-starter-block-theme.git wp-content/themes/${STARTER_THEME_SLUG}
@@ -59,7 +59,7 @@ if $INSTALL_AIOM_PLUGIN; then
 
   if ddev wp plugin is-installed ${PLUGIN_SLUG_AIOM} > /dev/null 2>&1; then
     PLUGIN_NAME_AIOM=$(ddev wp plugin get ${PLUGIN_SLUG_AIOM} --field=title)
-    printf "${YELLOW}${PLUGIN_NAME_AIOM} is already installed. Skipping installation.${RESET}\n"
+    printf "${BLACK}${PLUGIN_NAME_AIOM} is already installed. Skipping installation.${RESET}\n"
   else
     ddev wp plugin install $PLUGIN_SLUG_AIOM --activate
   fi
@@ -72,7 +72,7 @@ if $INSTALL_LOCAL_AIOMUE_PLUGIN; then
 
   if ddev wp plugin is-installed ${PLUGIN_SLUG_AIOMUE} > /dev/null 2>&1; then
     PLUGIN_NAME_AIOMUE=$(ddev wp plugin get ${PLUGIN_SLUG_AIOMUE} --field=title)
-    printf "${YELLOW}${PLUGIN_NAME_AIOMUE} is already installed. Skipping installation.${RESET}\n"
+    printf "${BLACK}${PLUGIN_NAME_AIOMUE} is already installed. Skipping installation.${RESET}\n"
   else
     unzip "$LOCAL_AIOMUE_PATH" -x "__MACOSX/*" -d ./wp-content/plugins
     printf "${BLUE}Activating All-In-One Migration Unlimited Extension plugin...${RESET}\n"
@@ -87,7 +87,7 @@ if $INSTALL_QUERY_MONITOR_PLUGIN; then
 
   if ddev wp plugin is-installed ${PLUGIN_SLUG_QM} > /dev/null 2>&1; then
     PLUGIN_NAME_QM=$(ddev wp plugin get ${PLUGIN_SLUG_QM} --field=title)
-    printf "${YELLOW}${PLUGIN_NAME_QM} is already installed. Skipping installation.${RESET}\n"
+    printf "${BLACK}${PLUGIN_NAME_QM} is already installed. Skipping installation.${RESET}\n"
   else
     ddev wp plugin install $PLUGIN_SLUG_QM --activate
   fi
@@ -97,7 +97,7 @@ fi
 printf "${BLUE}Setting WP permalinks to use '%%postname%%'...${RESET}\n"
 
 if [[ $(ddev wp option get permalink_structure) == '/%postname%' ]]; then
-  printf "${YELLOW}The permalink structure is already using '%%postname%%'. Skipping restructure.${RESET}\n"
+  printf "${BLACK}The permalink structure is already using '%%postname%%'. Skipping restructure.${RESET}\n"
 else
   ddev wp rewrite structure '/%postname%'
 fi
@@ -127,7 +127,7 @@ printf "${BLUE}Deleting WordPress' default 'Hello, World' post...${RESET}\n"
 if ddev wp post exists 1 > /dev/null 2>&1; then
   ddev wp post delete 1 --force
 else
-  printf "${YELLOW}Post with ID 1 does not exist. Skipping deletion.${RESET}\n"
+  printf "${BLACK}Post with ID 1 does not exist. Skipping deletion.${RESET}\n"
 fi
 
 # Delete Sample Page
@@ -135,7 +135,7 @@ printf "${BLUE}Deleting WordPress' default 'Sample Page'...${RESET}\n"
 if ddev wp post exists 2 > /dev/null 2>&1; then
   ddev wp post delete 2 --force
 else
-  printf "${YELLOW}Post with ID 2 does not exist. Skipping deletion.${RESET}\n"
+  printf "${BLACK}Post with ID 2 does not exist. Skipping deletion.${RESET}\n"
 fi
 
 # Delete Privacy Policy draft page
@@ -143,14 +143,14 @@ printf "${BLUE}Deleting WordPress' default 'Privacy Policy'...${RESET}\n"
 if ddev wp post exists 3 > /dev/null 2>&1; then
   ddev wp post delete 3 --force
 else
-  printf "${YELLOW}Post with ID 3 does not exist. Skipping deletion.${RESET}\n"
+  printf "${BLACK}Post with ID 3 does not exist. Skipping deletion.${RESET}\n"
 fi
 
 # Create a 'Homepage' page
 printf "${BLUE}Creating a new page titled 'Homepage' and setting it to be the site's front page...${RESET}\n"
 
 if [[ $(ddev wp option get show_on_front) == 'page' ]]; then
-  printf "${YELLOW}Homepage already exists. Skipping creation.${RESET}\n"
+  printf "${BLACK}Homepage already exists. Skipping creation.${RESET}\n"
 else
   HOMEPAGE_ID=$(ddev wp post create --post_type=page --post_title='Homepage' --post_author=1 --post_status=publish --post_content='<!-- wp:paragraph --><p>This is the homepage.</p><!-- /wp:paragraph -->' --porcelain)
   ddev wp option update show_on_front 'page'
