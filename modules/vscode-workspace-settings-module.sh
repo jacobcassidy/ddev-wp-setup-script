@@ -6,7 +6,7 @@ printf "${BLUE}Creating .vscode/settings.json file...${RESET}\n"
 vscode_settings=".vscode/settings.json"
 
 if [ -f "$vscode_settings" ]; then
-  printf "${YELLOW}The ${vscode_settings} file already exists. Skipping creation.${RESET}\n"
+  printf "${BLACK}The ${vscode_settings} file already exists. Skipping creation.${RESET}\n"
 else
   # Create the directories if they don't exist
   mkdir -p "$(dirname "$vscode_settings")"

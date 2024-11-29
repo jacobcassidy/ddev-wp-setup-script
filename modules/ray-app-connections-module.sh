@@ -6,7 +6,7 @@ printf "${BLUE}Creating php-ray.ini file...${RESET}\n"
 ray_ini=".ddev/php/php-ray.ini"
 
 if [ -f "$ray_ini" ]; then
-  printf "${YELLOW}The ${ray_ini} file already exists. Skipping creation.${RESET}\n"
+  printf "${BLACK}The ${ray_ini} file already exists. Skipping creation.${RESET}\n"
 else
    # Create the directories if they don't exist.
   mkdir -p "$(dirname "$ray_ini")"
@@ -22,7 +22,7 @@ printf "${BLUE}Creating Dockerfile file for Global Ray...${RESET}\n"
 ray_dockerfile=".ddev/web-build/Dockerfile"
 
 if [ -f "$ray_dockerfile" ]; then
-  printf "${YELLOW}The ${ray_dockerfile} file already exists. Skipping creation.${RESET}\n"
+  printf "${BLACK}The ${ray_dockerfile} file already exists. Skipping creation.${RESET}\n"
 else
   # Create the directories if they don't exist
   mkdir -p "$(dirname "$ray_dockerfile")"
@@ -37,7 +37,7 @@ fi
 printf "${BLUE}Creating ray.php file...${RESET}\n"
 
 if [ -f "ray.php" ]; then
-  printf "${YELLOW}The ray.php file already exists. Skipping creation.${RESET}\n"
+  printf "${BLACK}The ray.php file already exists. Skipping creation.${RESET}\n"
 else
   # Copy/Paste file
   cp ${FILES_DIR}/ray.php ./

@@ -25,7 +25,7 @@ hooks:
 
 # Check if the unique exec command exists in the config file
 if grep -q "$WP_DEBUG_SETTING" "$CONFIG_FILE"; then
-  printf "${YELLOW}The WP Debug post-start hooks already exist in $CONFIG_FILE. Skipping creation.${RESET}\n"
+  printf "${BLACK}The WP Debug post-start hooks already exist in $CONFIG_FILE. Skipping creation.${RESET}\n"
 # Check if the hooks section exists
 elif grep -q "^hooks:" "$CONFIG_FILE"; then
   # Add post-start hooks under the existing hooks section
@@ -49,7 +49,7 @@ LOG_DIR="$(dirname "$LOG_DIR_VALUE")"
 if [ -n "$LOG_DIR" ]; then
   printf "${BLUE}Creating $LOG_DIR directory...${RESET}\n"
   if [ -d "$LOG_DIR" ]; then
-    printf "${YELLOW}The '$LOG_DIR' directory already exists. Skipping creation.${RESET}\n"
+    printf "${BLACK}The '$LOG_DIR' directory already exists. Skipping creation.${RESET}\n"
   else
     mkdir -p "$LOG_DIR"
     # Print success message

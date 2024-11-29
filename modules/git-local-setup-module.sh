@@ -3,7 +3,7 @@
 # Initialize Git
 printf "${BLUE}Initializing Git...${RESET}\n"
 if [ -d '.git' ]; then
-  printf "${YELLOW}Git is already initialized for this project. Skipping initialization.${RESET}\n"
+  printf "${BLACK}Git is already initialized for this project. Skipping initialization.${RESET}\n"
 else
   git init
   # Print success message
@@ -13,7 +13,7 @@ fi
 # Add .gitignore file to project
 printf "${BLUE}Creating .gitignore file...${RESET}\n"
 if [ -f ".gitignore" ]; then
-  printf "${YELLOW}The .gitignore file already exists. Skipping creation.${RESET}\n"
+  printf "${BLACK}The .gitignore file already exists. Skipping creation.${RESET}\n"
 else
   # Copy/Paste file
   cp ${FILES_DIR}/.gitignore ./
