@@ -4,6 +4,7 @@
 printf "${BLUE}Setting WordPress Debug Configurations...${RESET}\n"
 
 CONFIG_FILE=".ddev/config.yaml"
+SLEEP_SETTING="sleep 2"
 WP_ENV_SETTING="wp config set WP_ENVIRONMENT_TYPE ${WP_ENVIRONMENT_TYPE_VALUE}"
 WP_DEBUG_SETTING="wp config set WP_DEBUG ${WP_DEBUG_VALUE} --raw"
 WP_DISPLAY_SETTING="wp config set WP_DEBUG_DISPLAY ${WP_DEBUG_DISPLAY_VALUE} --raw"
@@ -15,6 +16,7 @@ WP_DEVELOPMENT_MODE_SETTING="wp config set WP_DEVELOPMENT_MODE ${WP_DEVELOPMENT_
 HOOK="
 hooks:
   post-start:
+    - exec: $SLEEP_SETTING
     - exec: $WP_ENV_SETTING
     - exec: $WP_DEVELOPMENT_MODE_SETTING
     - exec: $WP_DEBUG_SETTING
@@ -31,6 +33,7 @@ elif grep -q "^hooks:" "$CONFIG_FILE"; then
   # Add post-start hooks under the existing hooks section
   sed -i '' "/hooks:/a \\
   \ \ post-start:\\
+  \ \ \ \ - exec: $SLEEP_SETTING\\
   \ \ \ \ - exec: $WP_ENV_SETTING\\
   \ \ \ \ - exec: $WP_DEVELOPMENT_MODE_SETTING
   \ \ \ \ - exec: $WP_DEBUG_SETTING\\
