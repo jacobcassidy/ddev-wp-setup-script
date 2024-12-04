@@ -1,5 +1,11 @@
 # Changelog for `ddev-wp-setup-script`
 
+## 1.6.1
+
+_2024-12_04_
+
+-   Added 2s sleep timing to post-start hooks to allow system to finalize before execution.
+
 ## 1.6.0
 
 _2024-11-29_
