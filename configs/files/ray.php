@@ -5,7 +5,7 @@
  * @package Global Ray
  */
 
-return array(
+return [
 
 	/*
 	 * This settings controls whether data should be sent to Ray.
@@ -31,4 +31,4 @@ return array(
 	 * Absolute base path for your sites or projects on your local computer where your IDE or code editor is running on.
 	 */
 	'local_path'  => 'LOCAL_PROJECT_DIR',
-);
+];
