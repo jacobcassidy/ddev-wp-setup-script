@@ -1,0 +1,45 @@
+# Build files
+build
+
+# Cache files
+.eslintcache
+.npm
+
+# Environment files
+ddev-wp-setup-script
+.env
+
+# Logs
+logs
+*.log
+
+# Packages
+node_modules
+vendor
+
+# Storage files
+*.tgz
+*.zip
+
+# Temporary files
+.dev-assets
+
+# WordPress Core & third-party files
+/wp-admin
+/wp-includes
+/index.php
+/license.txt
+/readme.html
+/wp-*.php
+/xmlrpc.php
+/wp-content/*
+!wp-content/mu-plugins/
+!wp-content/plugins/
+!wp-content/themes/
+wp-content/mu-plugins/*
+wp-content/plugins/*
+wp-content/themes/*
+
+# THEMES AND PLUGINS TO NOT IGNORE
+# !wp-content/themes/theme-name
+# !wp-content/plugins/plugin-name
