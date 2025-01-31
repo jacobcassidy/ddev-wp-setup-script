@@ -1,0 +1,25 @@
+# Build files
+/build
+
+# Cache files
+.eslintcache
+.npm
+
+# Environment files
+ddev-wp-setup-script
+.env
+
+# Logs
+logs
+*.log
+
+# Packages
+node_modules
+vendor
+
+# Storage files
+*.tgz
+*.zip
+
+# Temporary files
+.dev-assets

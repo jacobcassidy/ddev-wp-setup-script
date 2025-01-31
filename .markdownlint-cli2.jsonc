@@ -1,0 +1,6 @@
+/* This file is used to configure markdownlint-cli2 and the vscode-markdownlint
+ * extension that uses it (for non-config options).
+ */
+{
+	"ignores": [ ".dev-assets/**" ]
+}

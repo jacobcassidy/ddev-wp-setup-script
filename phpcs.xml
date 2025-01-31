@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="WP Standards Updated"
+  xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/squizlabs/PHP_CodeSniffer/master/phpcs.xsd">
+  <description>CassidyDC WordPress coding standards.</description>
+  <!-- See example file: https://github.com/humanmade/coding-standards/blob/master/HM/ruleset.xml -->
+
+  <rule ref="WordPress">
+    <!-- Allow normal, non-yoda coditions. -->
+    <exclude name="WordPress.PHP.YodaConditions" />
+    <!-- Allow short array syntax. -->
+    <exclude name="Generic.Arrays.DisallowShortArraySyntax" />
+    <exclude name="Universal.Arrays.DisallowShortArraySyntax.Found" />
+    <!-- Allow class filenames NOT to begin with `class-`. -->
+    <exclude name="WordPress.Files.FileName.InvalidClassFileName" />
+    <!-- Allow Class filenames in PascalCase or Snake_Case. -->
+    <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
+  </rule>
+
+  <!-- Change rule from error to warning -->
+  <rule ref="Squiz.Commenting.InlineComment.InvalidEndChar">
+    <type>warning</type>
+  </rule>
+
+  <!-- Disallow Yoda conditions. -->
+  <rule ref="Generic.ControlStructures.DisallowYodaConditions" />
+  <!-- Disallow long array syntax. -->
+  <rule ref="Generic.Arrays.DisallowLongArraySyntax.Found" />
+</ruleset>

@@ -1,0 +1,12 @@
+parameters:
+	level: 10
+	paths:
+		- .
+	excludePaths:
+		analyse:
+			- node_modules (?)
+			- vendor (?)
+			# UNCOMMENT BELOW TO EXCLUDE WORDPRESS CORE FILES
+			# - wp-*
+			# - index.php
+			# - xmlrpc.php

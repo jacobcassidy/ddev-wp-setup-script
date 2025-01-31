@@ -1,0 +1,8 @@
+{
+	"default": true,
+	"ul-indent": { "indent": 4 },
+	"line-length": { "line_length": 9999 },
+	"no-duplicate-heading": { "siblings_only": true },
+	"no-hard-tabs": false,
+	"whitespace": false
+}
