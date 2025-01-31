@@ -17,7 +17,7 @@ STARTER_THEME_SLUG='cassidywp-starter-block-theme'
 # If you don't have this plugin, set `INSTALL_LOCAL_AIOMUE_PLUGIN` to false.
 LOCAL_AIOMUE_PATH='/Users/Jacob/Projects/Assets/Packages/WordPress/Plugins/All In One Migration Unlimited Extension/all-in-one-wp-migration-unlimited-extension_2.59.zip'
 
-# TURN SETTINGS ON/OFF:
+# Turn settings on/off with true/false values:
 
 ## THEMES
 
