@@ -1,7 +1,4 @@
 # Host machine directories.
-SCRIPT_DIR='ddev-wp-setup-script'
-MODULES_DIR="${SCRIPT_DIR}/modules"
-FILES_DIR="${SCRIPT_DIR}/files"
 PROJECT_DIR=$(pwd)
 
 # Get the project name from the project directory, minus any leading

@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Get the script constants
-source ddev-wp-setup-script/configs/modules/constants.sh
+source constants.sh
 
 # Get the script settings
-source ${CONFIGS_DIR}/settings.sh
+source settings.sh
 
 # Confirm WP_USER_EMAIL is a valid email address before proceeding
 if ! [[ "$WP_USER_EMAIL" =~ ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$ ]]; then
@@ -18,17 +18,17 @@ ddev config --project-type=wordpress --project-name=$PROJECT_NAME_SLUG
 
 # Add Spatie Ray app files for development env.
 if $INSTALL_RAY_CONNECTIONS; then
-  source ${MODULES_DIR}/ray-app-connections-module.sh
+  source /modules/ray-app-connections-module.sh
 fi
 
 # Add WordPress debugging log for WP development.
 if $INSTALL_WP_DEBUG_SETTING; then
-  source ${MODULES_DIR}/wp-debug-log-setup-module.sh
+  source /modules/wp-debug-log-setup-module.sh
 fi
 
 # Add git and git assets.
 if $INSTALL_GIT; then
-  source ${MODULES_DIR}/git-local-setup-module.sh
+  source /modules/git-local-setup-module.sh
 fi
 
 # Build and start the project's Docker containers.
@@ -36,4 +36,4 @@ printf "${BLUE}Starting DDEV containers...${RESET}\n"
 ddev start $PROJECT_NAME_SLUG
 
 # Install and set up WordPress for development.
-source ${MODULES_DIR}/wp-starter-setup-module.sh
+source /modules/wp-starter-setup-module.sh
