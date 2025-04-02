@@ -15,7 +15,7 @@ STARTER_THEME_SLUG='cassidywp-starter-block-theme'
 
 # Local path to the All-in-One WP Migration Unlimited Extension plugin zip file.
 # If you don't have this plugin, set `INSTALL_LOCAL_AIOMUE_PLUGIN` to false.
-LOCAL_AIOMUE_PATH='/Users/Jacob/Projects/Assets/Packages/WordPress/Plugins/All In One Migration Unlimited Extension/all-in-one-wp-migration-unlimited-extension_2.59.zip'
+LOCAL_AIOMUE_PATH='/Users/Jacob/Projects/Assets/Packages/WordPress/Plugins/All In One Migration Unlimited Extension/all-in-one-wp-migration-unlimited-extension_2.65.zip'
 
 # Turn settings on/off with true/false values:
 
@@ -33,7 +33,7 @@ INSTALL_STARTER_THEME=true
 INSTALL_AIOM_PLUGIN=true
 
 ### Installs All-in-One WP Migration Unlimited Extension plugin from local machine zip file
-INSTALL_LOCAL_AIOMUE_PLUGIN=true
+INSTALL_LOCAL_AIOMUE_PLUGIN=false
 
 ### Installs Query Monitor plugin
 INSTALL_QUERY_MONITOR_PLUGIN=true
