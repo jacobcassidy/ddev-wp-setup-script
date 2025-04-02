@@ -5,9 +5,9 @@
 		"davidanson.vscode-markdownlint", // Markdown linting
 		"dbaeumer.vscode-eslint", // ESLint for JS/TS linting
 		"esbenp.prettier-vscode", // Prettier for code formatting
+		"ExodiusStudios.comment-anchors", // Comment anchors for todos and other comments
 		"fabiospampinato.vscode-browser-refresh", // Browser refresh in VSCode with hotkey
 		"GitHub.copilot", // Auto-complete on steroids. Useful for suggestions, but not for blindly accepting code
-		"Gruntfuggly.todo-tree", // Todo Tree for TODOs in code
 		"jacobcassidy.cassidy-dark", // VSCode theme
 		"jacobcassidy.css-nesting-syntax-highlighting", // CSS nesting syntax highlighting
 		"Kasik96.latte", // Neon file syntax highlighting
