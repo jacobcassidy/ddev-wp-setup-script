@@ -3,7 +3,7 @@
 # Get the script constants
 source ddev-wp-setup-script/configs/modules/constants.sh
 
-# Get the script config settings
+# Get the script settings
 source ${CONFIGS_DIR}/settings.sh
 
 # Confirm WP_USER_EMAIL is a valid email address before proceeding
