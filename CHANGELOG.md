@@ -1,8 +1,21 @@
 # Changelog for `ddev-wp-setup-script`
 
+## 1.6.2
+
+_2025-04-02_
+
+-   Fixed typos.
+-   Removed all development configuration files. (These files are now part of a separate repo located at `https://github.com/jacobcassidy/wp-dev-config-files`)
+-   Renamed `config.sh` to `settings.sh`
+-   Replaced `array()` with short syntax `[]`
+-   Restructured file organization to simplify setup.
+-   Updated AIO unlimited extension version.
+-   Updated README.md content for file restructure.
+-   Updated the default value for the local AIOMUE plugin to `false` since it's a paid plugin that needs a local file source.
+
 ## 1.6.1
 
-_2024-12_04_
+_2024-12-04_
 
 -   Added 2s sleep timing to post-start hooks to allow system to finalize before execution.
 
