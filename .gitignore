@@ -14,7 +14,11 @@ logs
 *.log
 
 # Packages
-node_modules
+node_modules/*
+!node_modules/@wordpress
+node_modules/@wordpress/*
+!node_modules/@wordpress/scripts
+!node_modules/@wordpress/eslint-plugin
 vendor
 
 # Storage files
