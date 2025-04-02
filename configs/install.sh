@@ -21,11 +21,6 @@ if $INSTALL_RAY_CONNECTIONS; then
   source ${MODULES_DIR}/ray-app-connections-module.sh
 fi
 
-# Add VSCode workspace settings file for WP development.
-if $INSTALL_VSCODE_SETTINGS; then
-  source ${MODULES_DIR}/vscode-workspace-settings-module.sh
-fi
-
 # Add WordPress debugging log for WP development.
 if $INSTALL_WP_DEBUG_SETTING; then
   source ${MODULES_DIR}/wp-debug-log-setup-module.sh

@@ -48,9 +48,6 @@ HIDE_DASHBOARD_WIDGETS=true
 ### Installs Spatie Ray connection files to work with Docker containers
 INSTALL_RAY_CONNECTIONS=true
 
-### Installs VSCode workspace settings file to follow WordPress coding standards
-INSTALL_VSCODE_SETTINGS=true
-
 ### Installs local Git repo and .gitignore file for the project
 INSTALL_GIT=true
 
