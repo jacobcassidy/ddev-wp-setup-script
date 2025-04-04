@@ -46,7 +46,7 @@ source ${ROOT_DIR}/settings.sh
 
 # Confirm WP_USER_EMAIL is a valid email address before proceeding
 if ! [[ "$WP_USER_EMAIL" =~ ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$ ]]; then
-  printf "${BRIGHT_RED}${WP_USER_EMAIL}${RESET}${RED} is not a valid email address. Please update the ${BRIGHT_RED}WP_USER_EMAIL${RESET}${RED} setting in ${BRIGHT_RED}settings.sh${RESET}${RED} with a valid email address and rerun the install script.${RESET}\n"
+  printf "${BRIGHT_RED}${WP_USER_EMAIL}${RESET}${RED} is not a valid email address. Please update the ${BRIGHT_RED}WP_USER_EMAIL${RESET}${RED} setting in ${BRIGHT_RED}settings.sh${RESET}${RED} with a valid email and rerun the install script.${RESET}\n"
   exit 1
 fi
 
