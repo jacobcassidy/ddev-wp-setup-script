@@ -1,60 +1,70 @@
 #!/bin/bash
 
-# DETAILS
+# SETTINGS
 
 ## Your WP site name. Defaults to the project name taken from the project directory.
 ## Uncomment the following line to set a custom name.
 # WP_SITE_TITLE='Example Title'
 
-## WP Admin login details for user 1
-WP_USER_NAME='example-name'
-WP_USER_PASS='example-password'
-WP_USER_EMAIL='example-email@example.com'
+## Set WP Admin login details for user 1
+WP_USER_NAME='admin'
+WP_USER_PASS='password'
+WP_USER_EMAIL='admin@example.com'
 
-## Theme Slugs
-DEFAULT_THEME_SLUG='twentytwentyfive'
-STARTER_THEME_SLUG='cassidywp-starter-block-theme'
-
-## Local path to the All-in-One WP Migration Unlimited Extension plugin zip file.
-## Not used unless INSTALL_LOCAL_AIOMUE_PLUGIN is set to true.
-LOCAL_AIOMUE_PATH='/Users/Jacob/Projects/Assets/Packages/WordPress/Plugins/All In One Migration Unlimited Extension/all-in-one-wp-migration-unlimited-extension_2.65.zip'
-
-# SETTINGS - Turn settings on/off with true/false values
-
-## DEBUGGING
-### Add WordPress debugging and env settings
-INSTALL_WP_DEBUG_SETTING=true
-### Set values for WP debugging and env settings.
-### Only used if INSTALL_WP_DEBUG_SETTING is set to true.
-if $INSTALL_WP_DEBUG_SETTING; then
-  WP_DEBUG_VALUE=true
-  WP_DEBUG_DISPLAY_VALUE=false
-  LOG_DIR_VALUE='logs/wp-errors.log'
-  SCRIPT_DEBUG_VALUE=true
-  WP_ENVIRONMENT_TYPE_VALUE='development'
-  WP_DEVELOPMENT_MODE_VALUE='theme'
-fi
-
-## FILES
-### Install Spatie Ray connection files to work with Docker containers
+## Install Spatie Ray connection files to work with Docker containers
 INSTALL_RAY_CONNECTIONS=true
-### Install local Git repo and .gitignore file for the project
+
+## Install local Git repo and .gitignore file for the project
 INSTALL_GIT=true
 
-## PLUGINS
-### Install All-in-One WP Migration plugin
-INSTALL_AIOM_PLUGIN=true
-### Install All-in-One WP Migration Unlimited Extension plugin from local machine zip file
-INSTALL_LOCAL_AIOMUE_PLUGIN=false
-### Install Query Monitor plugin
-INSTALL_QUERY_MONITOR_PLUGIN=true
+## Install clean version of WP
+INSTALL_CLEAN_WP=true
 
-## THEMES
-### Install official Default WordPress Theme
-INSTALL_DEFAULT_THEME=true
-### Install CassidyWP Starter Block Theme
-INSTALL_STARTER_THEME=true
+if $INSTALL_CLEAN_WP; then
+  ## Hide default WP Admin dashboard widgets for default user 1
+  HIDE_DASHBOARD_WIDGETS=true
 
-## WIDGETS
-### Hide default WordPress dashboard widgets for user 1
-HIDE_DASHBOARD_WIDGETS=true
+  ## Install default official WordPress theme
+  INSTALL_DEFAULT_THEME=true
+  DEFAULT_THEME_SLUG='twentytwentyfive'
+
+  # Remove default Hello World post
+  REMOVE_WP_HELLO_POST=true
+
+  # Remove default Sample Page
+  REMOVE_WP_SAMPLE_PAGE=true
+
+  # Remove default Privacy Policy draft page
+  REMOVE_WP_PRIVACY_DRAFT=true
+
+  # Update the WP permalinks to use the post name
+  SET_POSTNAME_PERMALINKS=true
+
+  ## Create a new page titled 'Homepage' and set it to be the site's front page
+  CREATE_HOMEPAGE=true
+fi
+
+## Add WP configurations
+ADD_WP_CONFIG_SETTINGS=true
+
+if $ADD_WP_CONFIG_SETTINGS; then
+  ## Set WP debug settings
+  WP_DEBUG_VALUE=true
+  WP_DEBUG_DISPLAY_VALUE=false
+  WP_DEBUG_LOG_VALUE='logs/wp-errors.log'
+  WP_DEBUG_SCRIPT_VALUE=true
+
+  ## Set WP environment settings
+  WP_DEVELOPMENT_MODE_VALUE='theme'
+  WP_ENVIRONMENT_TYPE_VALUE='local'
+fi
+
+## Install CassidyWP Starter Block Theme
+INSTALL_STARTER_THEME=false
+STARTER_THEME_SLUG='cassidywp-starter-block-theme'
+
+## Install WP plugins
+INSTALL_QUERY_MONITOR_PLUGIN=false
+INSTALL_AIOM_PLUGIN=false # All-in-One WP Migration plugin
+INSTALL_LOCAL_AIOMUE_PLUGIN=false # All-in-One WP Migration Unlimited Extension plugin from local machine
+LOCAL_AIOMUE_PATH='/Users/Jacob/Projects/Assets/Packages/WordPress/Plugins/All In One Migration Unlimited Extension/all-in-one-wp-migration-unlimited-extension_2.65.zip'
