@@ -1,5 +1,19 @@
 # Changelog for `ddev-wp-setup-script`
 
+## 2.0.0
+
+_2025-07-21_
+
+This version refactors the install setup to separate WordPress Core files from the rest of the files, including wp-content.
+
+-   Replaced the default WordPress install with the `roots/wordpress` composer package for installing core files in the `wordpress` directory.
+-   Added a root `index.php` file to point to the WP Core `wordpress/index.php` file.
+-   Added a root `wp-cli.yml` file to point the WP CLI path to the `wordpress` directory.
+-   Refactored `.gitignore` file and renamed it to `gitignore.txt` since it's a template and not suppose to act as a real .gitignore file in this repo.
+-   Refactored and rename the `wp-starter-setup-module.sh` to `wp-install-module.sh`.
+-   Refactored DDEV post-start hooks install order so they get added to wp-config.php on the first start (previously they were only added after a restart).
+-   Renamed `wp-debug-log-setup-module.sh` to `ddev-post-start-hooks-module.sh`.
+
 ## 1.6.2
 
 _2025-04-02_
