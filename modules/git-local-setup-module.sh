@@ -16,7 +16,7 @@ if [ -f ".gitignore" ]; then
   printf "${BLACK}The .gitignore file already exists. Skipping creation.${RESET}\n\n"
 else
   # Copy/Paste file
-  cp ${ROOT_DIR}/files/.gitignore ./
+  cp ${ROOT_DIR}/files/gitignore.txt ./.gitignore
   # Update .gitignore allow list to include custom theme
   sed -i '' "s|# \!wp-content/themes/theme-name|\!wp-content/themes/${STARTER_THEME_SLUG}|g" .gitignore
   # Print success message
