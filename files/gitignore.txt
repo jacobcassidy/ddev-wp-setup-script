@@ -1,5 +1,5 @@
 # Ignore all files unless explicitly added below
-*
+/*
 
 # Allow themes and plugins to be added below
 !/wp-content
