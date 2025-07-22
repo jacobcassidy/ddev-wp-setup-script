@@ -14,6 +14,9 @@ WP_USER_EMAIL='admin@example.com'
 # Set custom table prefix for WordPress database by uncommenting the following line
 # CUSTOM_TABLE_PREFIX='wp_custom_'
 
+# Set search and replace hook to run after a DB import using the `ddev import-db` command
+# SET_DB_URL_REPLACE="https://production.com https://local.ddev.site"
+
 ## Install Spatie Ray connection files to work with Docker containers
 INSTALL_RAY_CONNECTIONS=true
 
@@ -55,7 +58,7 @@ if $ADD_WP_CONFIG_SETTINGS; then
   WP_DEBUG_VALUE=true
   WP_DEBUG_DISPLAY_VALUE=false
   WP_DEBUG_LOG_VALUE='logs/wp-errors.log'
-  WP_DEBUG_SCRIPT_VALUE=true
+  SCRIPT_DEBUG_VALUE=true
 
   ## Set WP environment settings
   WP_DEVELOPMENT_MODE_VALUE='theme'
