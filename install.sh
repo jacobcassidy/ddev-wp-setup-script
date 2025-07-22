@@ -61,6 +61,24 @@ echo '' # new line
 # Add WP Config constants and set DDEV post-start hooks for restarts
 if $ADD_WP_CONFIG_SETTINGS; then
   source ${MODULES_DIR}/ddev-post-start-hooks-module.sh
+
+  # Create the log directory if it's set in the settings and doesn't yet exist
+  if [ -n "$WP_DEBUG_LOG_VALUE" ] && [ "$WP_DEBUG_LOG_VALUE" != "false" ]; then
+    LOG_DIR="$(dirname "$WP_DEBUG_LOG_VALUE")"
+
+    if [ -n "$LOG_DIR" ]; then
+      printf "${BLUE}Creating $LOG_DIR directory...${RESET}\n"
+      if [ -d "$LOG_DIR" ]; then
+        printf "${BLACK}The '$LOG_DIR' directory already exists. Skipping creation.${RESET}\n\n"
+      else
+        mkdir -p "$LOG_DIR"
+        # Print success message
+        printf "${GREEN}New directory created at: ${BOLD}${LOG_DIR}${RESET}\n\n"
+      fi
+    else
+      printf "${RED}WP_DEBUG_LOG_VALUE is not set. Skipping directory creation.${RESET}\n\n"
+    fi
+  fi
 fi
 
 # Create themes directory

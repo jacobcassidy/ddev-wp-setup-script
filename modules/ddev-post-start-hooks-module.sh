@@ -4,7 +4,6 @@
 printf "${BLUE}Adding DDEV post-start hooks for WP Config...${RESET}\n"
 
 CONFIG_FILE=".ddev/config.yaml"
-LOG_DIR="$(dirname "$WP_DEBUG_LOG_VALUE")"
 SLEEP_COMMAND="sleep 2"
 WP_CONTENT_DIR_COMMAND="wp config set WP_CONTENT_DIR \"${WP_CONTENT_DIR_VALUE}\" --raw"
 WP_CONTENT_URL_COMMAND="wp config set WP_CONTENT_URL ${WP_CONTENT_URL_VALUE}"
@@ -50,18 +49,4 @@ elif grep -q "^hooks:" "$CONFIG_FILE" && ! grep -q "^[[:space:]]*post-start:" "$
   printf "${GREEN}Added post-start hooks for WP Config in: ${BOLD}${CONFIG_FILE}${RESET}\n\n"
 else
   printf "${BLACK}Post-start hooks already exist in $CONFIG_FILE. Skipping creation.${RESET}\n\n"
-fi
-
-# Create the log directory if it doesn't exist
-if [ -n "$LOG_DIR" ]; then
-  printf "${BLUE}Creating $LOG_DIR directory...${RESET}\n"
-  if [ -d "$LOG_DIR" ]; then
-    printf "${BLACK}The '$LOG_DIR' directory already exists. Skipping creation.${RESET}\n\n"
-  else
-    mkdir -p "$LOG_DIR"
-    # Print success message
-    printf "${GREEN}New directory created at: ${BOLD}${LOG_DIR}${RESET}\n\n"
-  fi
-else
-  printf "${RED}WP_DEBUG_LOG_VALUE is not set. Skipping directory creation.${RESET}\n\n"
 fi
