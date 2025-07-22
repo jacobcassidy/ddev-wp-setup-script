@@ -1,5 +1,11 @@
 # Changelog for `ddev-wp-setup-script`
 
+## 2.1.0
+
+_2025-07-22_
+
+-   Added setting and post-start hook for custom WP table prefix.
+
 ## 2.0.0
 
 _2025-07-21_
