@@ -1,5 +1,11 @@
 # Changelog for `ddev-wp-setup-script`
 
+## 2.1.1
+
+_2025-07-22_
+
+-   Added missing custom WP table prefix variable name.
+
 ## 2.1.0
 
 _2025-07-22_

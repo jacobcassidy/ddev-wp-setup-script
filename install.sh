@@ -51,7 +51,7 @@ fi
 # Set DDEV containers configuration
 if [ -n "$CUSTOM_TABLE_PREFIX" ]; then
   printf "${BLUE}Setting DDEV configurations with a custom table prefix...${RESET}\n"
-  ddev config --project-type=wordpress --project-name=$PROJECT_NAME_SLUG --web-environment-add="$CUSTOM_TABLE_PREFIX"
+  ddev config --project-type=wordpress --project-name=$PROJECT_NAME_SLUG --web-environment-add="TABLE_PREFIX=$CUSTOM_TABLE_PREFIX"
 else
   printf "${BLUE}Setting DDEV configurations...${RESET}\n"
   ddev config --project-type=wordpress --project-name=$PROJECT_NAME_SLUG
