@@ -11,6 +11,9 @@ WP_USER_NAME='admin'
 WP_USER_PASS='password'
 WP_USER_EMAIL='admin@example.com'
 
+# Set custom table prefix for WordPress database by uncommenting the following line
+# CUSTOM_TABLE_PREFIX='wp_custom_'
+
 ## Install Spatie Ray connection files to work with Docker containers
 INSTALL_RAY_CONNECTIONS=true
 

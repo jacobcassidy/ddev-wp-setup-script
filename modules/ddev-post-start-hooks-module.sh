@@ -27,23 +27,26 @@ if ! grep -q "^hooks:" "$CONFIG_FILE"; then
         - exec: $WP_DEBUG_LOG_COMMAND
         - exec: $WP_DEBUG_SCRIPT_COMMAND
         - exec: $WP_DEV_MODE_COMMAND
-        - exec: $WP_ENV_TYPE_COMMAND" >> "$CONFIG_FILE"
+        - exec: $WP_ENV_TYPE_COMMAND
+        - exec: bash -c 'if [ -n \"\$TABLE_PREFIX\" ]; then sed -i \"/\/\* That'\''s all, stop editing! Happy publishing. \*\//i\\\\\n\\\$table_prefix = '\''\$TABLE_PREFIX'\'';\\\n\" wp-config.php; fi'
+        " >> "$CONFIG_FILE"
   printf "${GREEN}Added post-start hooks for WP Config in: ${BOLD}${CONFIG_FILE}${RESET}\n\n"
 # If the hooks section exist, but the post-start subsection doesn't, add the post-start hook commands
 elif grep -q "^hooks:" "$CONFIG_FILE" && ! grep -q "^[[:space:]]*post-start:" "$CONFIG_FILE"; then
   # Add post-start hooks under the existing hooks section
-  sed -i '' "/^hooks:/a \\
-      post-start:\\
-          - exec: $SLEEP_COMMAND\\
-          - exec: $WP_CONTENT_DIR_COMMAND\\
-          - exec: $WP_CONTENT_URL_COMMAND\\
-          - exec: $WP_DEBUG_COMMAND\\
-          - exec: $WP_DEBUG_DISPLAY_COMMAND\\
-          - exec: $WP_DEBUG_LOG_COMMAND\\
-          - exec: $WP_DEBUG_SCRIPT_COMMAND\\
-          - exec: $WP_DEV_MODE_COMMAND\\
-          - exec: $WP_ENV_TYPE_COMMAND\\
-  " "$CONFIG_FILE"
+  sed -i '' "/^hooks:/a\\
+    post-start:\\
+        - exec: $SLEEP_COMMAND\\
+        - exec: $WP_CONTENT_DIR_COMMAND\\
+        - exec: $WP_CONTENT_URL_COMMAND\\
+        - exec: $WP_DEBUG_COMMAND\\
+        - exec: $WP_DEBUG_DISPLAY_COMMAND\\
+        - exec: $WP_DEBUG_LOG_COMMAND\\
+        - exec: $WP_DEBUG_SCRIPT_COMMAND\\
+        - exec: $WP_DEV_MODE_COMMAND\\
+        - exec: $WP_ENV_TYPE_COMMAND\\
+        - exec: bash -c 'if [ -n \"\$TABLE_PREFIX\" ]; then sed -i \"\/\\\/\\\* That'\\\''s all, stop editing! Happy publishing. \\\*\\\//i\\\\\\\\\\\n\\\\\$table_prefix = '\\\''\$TABLE_PREFIX'\\\'';\\\\\\\n\" wp-config.php; fi'\\
+" "$CONFIG_FILE"
   printf "${GREEN}Added post-start hooks for WP Config in: ${BOLD}${CONFIG_FILE}${RESET}\n\n"
 else
   printf "${BLACK}Post-start hooks already exist in $CONFIG_FILE. Skipping creation.${RESET}\n\n"

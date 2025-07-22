@@ -49,8 +49,13 @@ else
 fi
 
 # Set DDEV containers configuration
-printf "${BLUE}Setting DDEV configurations...${RESET}\n"
-ddev config --project-type=wordpress --project-name=$PROJECT_NAME_SLUG
+if [ -n "$CUSTOM_TABLE_PREFIX" ]; then
+  printf "${BLUE}Setting DDEV configurations with a custom table prefix...${RESET}\n"
+  ddev config --project-type=wordpress --project-name=$PROJECT_NAME_SLUG --web-environment-add="$CUSTOM_TABLE_PREFIX"
+else
+  printf "${BLUE}Setting DDEV configurations...${RESET}\n"
+  ddev config --project-type=wordpress --project-name=$PROJECT_NAME_SLUG
+fi
 echo '' # new line
 
 # Add WP Config constants and set DDEV post-start hooks for restarts
