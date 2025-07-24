@@ -20,10 +20,6 @@ PROJECT_NAME_SLUG=$(echo "$PROJECT_NAME" | sed 's/[[:space:]]/-/g' | tr '[:upper
 # Set the project root URL
 PROJECT_URL="https://${PROJECT_NAME}.ddev.site"
 
-# Set the 'wp-content' paths
-WP_CONTENT_DIR_VALUE="__DIR__ . '/wp-content'"
-WP_CONTENT_URL_VALUE="${PROJECT_URL}/wp-content"
-
 # Set terminal base colors for script output
 BLACK='\033[0;30m'
 RED='\033[0;31m'
