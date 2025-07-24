@@ -35,3 +35,13 @@ Originally, this script contained development configuration files such as `prett
 ## Found an Issue?
 
 If you come across any issues, please report them [here](https://github.com/jacobcassidy/ddev-wp-setup-script/issues).
+
+## Coding Standards
+
+The following files are available for adding coding standards to your project. They are installed by default and can be set to `false` in the settings.sh file if you don't want them installed.
+
+-   .vscode/extensions.json
+-   .vscode/settings.json
+-   .editorconfig
+-   phpcs.xml
+-   phpstan.neon
