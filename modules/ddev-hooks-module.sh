@@ -42,16 +42,16 @@ fi
 if ! grep -q "^hooks:" "$CONFIG_FILE"; then
   {
     echo "hooks:"
-    echo "    post-start:"
+    echo "  post-start:"
     for CONFIG in "${WP_CONFIGS[@]}"; do
       HOOK_VAR_NAME="${CONFIG}_HOOK"
       if [ -n "${!HOOK_VAR_NAME}" ]; then
-        echo "        ${!HOOK_VAR_NAME}"
+        echo "    ${!HOOK_VAR_NAME}"
       fi
     done
-    echo "    post-import-db:"
+    echo "  post-import-db:"
     if [ -n "$DB_URL_REPLACE_HOOK" ]; then
-      echo "        $DB_URL_REPLACE_HOOK"
+      echo "    $DB_URL_REPLACE_HOOK"
     fi
   } >> "$CONFIG_FILE"
   printf "${GREEN}Added hooks section with post-start and post-import-db in: ${BOLD}${CONFIG_FILE}${RESET}\n\n"
@@ -66,11 +66,11 @@ else
 
   if [ $POST_START_EXISTS -ne 0 ]; then
     sed -i '' "/^hooks:/a\\
-    post-start:\\
+  post-start:\\
 $(for CONFIG in "${WP_CONFIGS[@]}"; do
   HOOK_VAR_NAME="${CONFIG}_HOOK"
   if [ -n "${!HOOK_VAR_NAME}" ]; then
-    printf "        %s\\\\\n" "${!HOOK_VAR_NAME}"
+    printf "    %s\\\\\n" "${!HOOK_VAR_NAME}"
   fi
 done)
 " "$CONFIG_FILE"
@@ -81,9 +81,9 @@ done)
 
   if [ $POST_IMPORT_DB_EXISTS -ne 0 ]; then
     sed -i '' "/^hooks:/a\\
-    post-import-db:\\
+  post-import-db:\\
 $(if [ -n "$DB_URL_REPLACE_HOOK" ]; then
-  printf "        %s\\\\\n" "$DB_URL_REPLACE_HOOK"
+  printf "    %s\\\\\n" "$DB_URL_REPLACE_HOOK"
 fi)
 " "$CONFIG_FILE"
     printf "${GREEN}Added post-start hooks for WP Config in: ${BOLD}${CONFIG_FILE}${RESET}\n\n"
