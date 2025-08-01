@@ -14,6 +14,13 @@ WP_USER_EMAIL='admin@example.com'
 # Set custom table prefix for WordPress database by uncommenting the following line
 # CUSTOM_TABLE_PREFIX='wp_custom_'
 
+# Add a search and replace hook to run after a DB import using the `ddev import-db` command
+ADD_DB_URL_REPLACE=false
+
+if $ADD_DB_URL_REPLACE; then
+  DB_URL_REPLACE_VALUE="https://production.com https://local.ddev.site"
+fi
+
 ## Install Spatie Ray connection files to work with Docker containers
 INSTALL_RAY_CONNECTIONS=true
 
@@ -51,15 +58,19 @@ fi
 ADD_WP_CONFIG_SETTINGS=true
 
 if $ADD_WP_CONFIG_SETTINGS; then
+  # Set the 'wp-content' paths
+  WP_CONTENT_DIR_VALUE="__DIR__ . '/wp-content'"
+  WP_CONTENT_URL_VALUE="'${PROJECT_URL}/wp-content'"
+
   ## Set WP debug settings
   WP_DEBUG_VALUE=true
   WP_DEBUG_DISPLAY_VALUE=false
-  WP_DEBUG_LOG_VALUE='logs/wp-errors.log'
-  WP_DEBUG_SCRIPT_VALUE=true
+  WP_DEBUG_LOG_VALUE="'logs/wp-errors.log'"
+  SCRIPT_DEBUG_VALUE=true
 
   ## Set WP environment settings
-  WP_DEVELOPMENT_MODE_VALUE='theme'
-  WP_ENVIRONMENT_TYPE_VALUE='local'
+  WP_DEVELOPMENT_MODE_VALUE="'theme'"
+  WP_ENVIRONMENT_TYPE_VALUE="'local'"
 fi
 
 ## Install CassidyWP Starter Block Theme
