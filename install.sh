@@ -18,11 +18,11 @@ fi
 printf "${BLUE}Adding WordPress core files with roots/wordpress composer package...${RESET}\n"
 if [ -f composer.json ]; then
   composer config --no-interaction allow-plugins.roots/wordpress-core-installer true
-  composer require roots/wordpress
+  composer require --dev roots/wordpress
 else
   composer init --author CassidyDC --require roots/wordpress:'*' --no-interaction
   composer config --no-interaction allow-plugins.roots/wordpress-core-installer true
-  composer require roots/wordpress
+  composer require --dev roots/wordpress
 fi
 echo '' # new line
 
