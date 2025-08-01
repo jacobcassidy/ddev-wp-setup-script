@@ -23,7 +23,7 @@ This script automatically sets up the following:
 -   (Optional) Downloads, installs, and activates the [CassidyWP Starter Block Theme](https://github.com/jacobcassidy/cassidywp-starter-block-theme).
 -   (Optional) Installs the [All-in-One WP Migration plugin](https://wordpress.org/plugins/all-in-one-wp-migration/).
 -   (Optional) Installs the [All-in-One WP Migration Unlimited Extension plugin](https://servmask.com/products/unlimited-extension).
-    -   _The setup for this plugin is set to `false` by default since it's a paid plugin and is installed from your local machine. If you have this plugin, you can turn the installation on in the `settings.sh` file by changing `INSTALL_LOCAL_AIOMUE_PLUGIN` to `true` and updating the path to your zip file._
+    -   _The setup for this plugin is set to `false` by default since it's a paid plugin and is installed from your local machine. If you have this plugin, you can turn the installation on in the `settings.sh` file by changing `INSTALL_WP_PLUGIN_AIOMUE_LOCAL` to `true` and updating the path to your zip file._
 -   (Optional) Installs the [Query Monitor plugin](https://wordpress.org/plugins/query-monitor/).
 -   (Optional) Installs the files needed to connect the DDEV Docker containers with the [Spatie Ray](https://myray.app/) desktop app (used for simple debugging when Xdebug is overkill).
 -   (Optional) Initializes a local project Git repo and adds a `.gitignore` file configured for WordPress.

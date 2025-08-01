@@ -20,7 +20,10 @@ PROJECT_NAME_SLUG=$(echo "$PROJECT_NAME" | sed 's/[[:space:]]/-/g' | tr '[:upper
 # Set the project root URL
 PROJECT_URL="https://${PROJECT_NAME}.ddev.site"
 
-# Set the CassidyDC WP Starter Block Theme directory/slug
+# Set the default official WordPress theme slug
+DEFAULT_WP_THEME_SLUG='twentytwentyfive'
+
+# Set the CassidyDC WP Starter Block Theme slug
 CASSIDYDC_STARTER_THEME_SLUG='cassidywp-starter-block-theme'
 
 # Set terminal base colors for script output

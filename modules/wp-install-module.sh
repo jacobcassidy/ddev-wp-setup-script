@@ -92,14 +92,14 @@ if $INSTALL_WP_CLEAN; then
 fi
 
 # Install default theme
-if $INSTALL_DEFAULT_THEME; then
-  printf "${BLUE}Installing default ${DEFAULT_THEME_SLUG} theme...${RESET}\n"
+if $INSTALL_WP_DEFAULT_THEME; then
+  printf "${BLUE}Installing default ${DEFAULT_WP_THEME_SLUG} theme...${RESET}\n"
 
-  if ddev wp theme is-installed ${DEFAULT_THEME_SLUG} > /dev/null 2>&1; then
-    DEFAULT_THEME_NAME=$(ddev wp theme get ${DEFAULT_THEME_SLUG} --field=name)
+  if ddev wp theme is-installed ${DEFAULT_WP_THEME_SLUG} > /dev/null 2>&1; then
+    DEFAULT_THEME_NAME=$(ddev wp theme get ${DEFAULT_WP_THEME_SLUG} --field=name)
     printf "${BLACK}${DEFAULT_THEME_NAME} is already installed. Skipping installation.${RESET}\n\n"
   else
-    ddev wp theme install $DEFAULT_THEME_SLUG
+    ddev wp theme install $DEFAULT_WP_THEME_SLUG
     echo '' # new line
   fi
 fi
@@ -126,7 +126,7 @@ if $INSTALL_CASSIDYDC_STARTER_THEME && [ -n $INSTALL_CASSIDYDC_STARTER_THEME]; t
 fi
 
 # Install All-In-One Migration plugin
-if $INSTALL_AIOM_PLUGIN; then
+if $INSTALL_WP_PLUGIN_AIOM; then
   printf "${BLUE}Installing All-In-One Migration plugin...${RESET}\n"
   PLUGIN_SLUG_AIOM='all-in-one-wp-migration'
 
@@ -140,7 +140,7 @@ if $INSTALL_AIOM_PLUGIN; then
 fi
 
 # Copy and install All-In-One Migration Unlimited Extension plugin from host machine.
-if $INSTALL_LOCAL_AIOMUE_PLUGIN; then
+if $INSTALL_WP_PLUGIN_AIOMUE_LOCAL; then
   printf "${BLUE}Installing All-In-One Migration Unlimited Extension plugin from local source...${RESET}\n"
   PLUGIN_SLUG_AIOMUE='all-in-one-wp-migration-unlimited-extension'
 
@@ -156,7 +156,7 @@ if $INSTALL_LOCAL_AIOMUE_PLUGIN; then
 fi
 
 # Install Query Monitor plugin
-if $INSTALL_QUERY_MONITOR_PLUGIN; then
+if $INSTALL_WP_PLUGIN_QUERY_MONITOR; then
   printf "${BLUE}Installing Query Monitor plugin...${RESET}\n"
   PLUGIN_SLUG_QM='query-monitor'
 
