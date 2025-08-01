@@ -18,7 +18,7 @@ else
   # Copy/Paste file
   cp ${ROOT_DIR}/files/gitignore.txt ./.gitignore
   # Update .gitignore allow list to include custom theme
-  sed -i '' "s|# \!wp-content/themes/theme-name|\!wp-content/themes/${STARTER_THEME_SLUG}|g" .gitignore
+  sed -i '' "s|# \!wp-content/themes/theme-name|\!wp-content/themes/${CASSIDYDC_STARTER_THEME_SLUG}|g" .gitignore
   # Print success message
   printf "${GREEN}File created at: ${BOLD}.gitignore${RESET}\n\n"
 fi

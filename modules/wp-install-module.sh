@@ -10,7 +10,7 @@ else
   echo '' # new line
 fi
 
-if $INSTALL_CLEAN_WP; then
+if $INSTALL_WP_CLEAN; then
   # Hide default WordPress dashboard widgets
   if $HIDE_DASHBOARD_WIDGETS; then
     printf "${BLUE}Hiding default WordPress dashboard widgets...${RESET}\n"
@@ -105,22 +105,22 @@ if $INSTALL_DEFAULT_THEME; then
 fi
 
 # Install and activate CassidyWP Starter Block Theme
-if $INSTALL_STARTER_THEME; then
-  if ddev wp theme is-installed ${STARTER_THEME_SLUG} > /dev/null 2>&1; then
-    CUSTOM_THEME_NAME=$(ddev wp theme get ${STARTER_THEME_SLUG} --field=name)
+if $INSTALL_CASSIDYDC_STARTER_THEME && [ -n $INSTALL_CASSIDYDC_STARTER_THEME]; then
+  if ddev wp theme is-installed ${CASSIDYDC_STARTER_THEME_SLUG} > /dev/null 2>&1; then
+    CUSTOM_THEME_NAME=$(ddev wp theme get ${CASSIDYDC_STARTER_THEME_SLUG} --field=name)
     printf "${BLUE}Installing ${CUSTOM_THEME_NAME}...${RESET}\n"
     printf "${BLACK}${CUSTOM_THEME_NAME} is already installed. Skipping installation.${RESET}\n\n"
   else
-    printf "${BLUE}Creating ${STARTER_THEME_SLUG} directory...${RESET}\n"
-    git clone git@github.com:jacobcassidy/cassidywp-starter-block-theme.git wp-content/themes/${STARTER_THEME_SLUG}
-    CUSTOM_THEME_NAME=$(ddev wp theme get ${STARTER_THEME_SLUG} --field=name)
+    printf "${BLUE}Creating ${CASSIDYDC_STARTER_THEME_SLUG} directory...${RESET}\n"
+    git clone git@github.com:jacobcassidy/cassidywp-starter-block-theme.git wp-content/themes/${CASSIDYDC_STARTER_THEME_SLUG}
+    CUSTOM_THEME_NAME=$(ddev wp theme get ${CASSIDYDC_STARTER_THEME_SLUG} --field=name)
     printf "${BLUE}Installing ${CUSTOM_THEME_NAME}...${RESET}\n"
-    ddev wp theme activate ${STARTER_THEME_SLUG}
+    ddev wp theme activate ${CASSIDYDC_STARTER_THEME_SLUG}
     echo '' # new line
 
     # Remove remote Git connection to CassidyWP Starter Block Theme repo.
     printf "${BLUE}Removing cloned remote Git for ${CUSTOM_THEME_NAME}...${RESET}\n"
-    git -C wp-content/themes/${STARTER_THEME_SLUG} remote remove origin
+    git -C wp-content/themes/${CASSIDYDC_STARTER_THEME_SLUG} remote remove origin
     printf "${GREEN}Removed cloned remote Git connection for ${CUSTOM_THEME_NAME}.${RESET}\n\n"
   fi
 fi

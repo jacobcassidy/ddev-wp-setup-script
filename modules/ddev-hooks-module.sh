@@ -33,25 +33,33 @@ for CONFIG in "${WP_CONFIGS[@]}"; do
   fi
 done
 
-# Add search-replace hook for post-import-db
-if [ $ADD_DB_URL_REPLACE ] && [ -n "$DB_URL_REPLACE_VALUE" ]; then
+# add a post-start hook with the table_preix variable
+if [ -n $CUSTOM_TABLE_PREFIX_VALUE ]; then
+  CUSTOM_TABLE_PREFIX_HOOK="${EXEC_HOOK} wp config set table_prefix \"${CUSTOM_TABLE_PREFIX_VALUE}\" --raw --type=variable"
+fi
+
+# Add a post-import-db hook with the search-replace command
+if [ -n "$DB_URL_REPLACE_VALUE" ]; then
   DB_URL_REPLACE_HOOK="${EXEC_HOOK} wp search-replace ${DB_URL_REPLACE_VALUE}"
 fi
 
-# Check if hooks section exist, if not add the hook commands
+# Add the hook and commands if hooks doesn't exist
 if ! grep -q "^hooks:" "$CONFIG_FILE"; then
   {
     echo "hooks:"
-    echo "  post-start:"
+    echo "    post-start:"
     for CONFIG in "${WP_CONFIGS[@]}"; do
       HOOK_VAR_NAME="${CONFIG}_HOOK"
       if [ -n "${!HOOK_VAR_NAME}" ]; then
-        echo "    ${!HOOK_VAR_NAME}"
+        echo "        ${!HOOK_VAR_NAME}"
       fi
     done
-    echo "  post-import-db:"
+    if [ -n $CUSTOM_TABLE_PREFIX_VALUE ]; then
+      echo "        ${CUSTOM_TABLE_PREFIX_HOOK}"
+    fi
     if [ -n "$DB_URL_REPLACE_HOOK" ]; then
-      echo "    $DB_URL_REPLACE_HOOK"
+      echo "    post-import-db:"
+      echo "        $DB_URL_REPLACE_HOOK"
     fi
   } >> "$CONFIG_FILE"
   printf "${GREEN}Added hooks section with post-start and post-import-db in: ${BOLD}${CONFIG_FILE}${RESET}\n\n"
@@ -64,13 +72,14 @@ else
   grep -q "^[[:space:]]*post-import-db:" "$CONFIG_FILE"
   POST_IMPORT_DB_EXISTS=$?
 
+  # If the post-start hooks section doesn't exist
   if [ $POST_START_EXISTS -ne 0 ]; then
     sed -i '' "/^hooks:/a\\
-  post-start:\\
+    post-start:\\
 $(for CONFIG in "${WP_CONFIGS[@]}"; do
   HOOK_VAR_NAME="${CONFIG}_HOOK"
   if [ -n "${!HOOK_VAR_NAME}" ]; then
-    printf "    %s\\\\\n" "${!HOOK_VAR_NAME}"
+    printf "        %s\\\\\n" "${!HOOK_VAR_NAME}"
   fi
 done)
 " "$CONFIG_FILE"
@@ -79,14 +88,15 @@ done)
     printf "${BLACK}The post-start hooks section already exist in $CONFIG_FILE. Skipping creation.${RESET}\n\n"
   fi
 
+  # If the post-import-db hooks section doesn't exist
   if [ $POST_IMPORT_DB_EXISTS -ne 0 ]; then
+     if [ -n "$DB_URL_REPLACE_HOOK" ]; then
     sed -i '' "/^hooks:/a\\
-  post-import-db:\\
-$(if [ -n "$DB_URL_REPLACE_HOOK" ]; then
-  printf "    %s\\\\\n" "$DB_URL_REPLACE_HOOK"
-fi)
+    post-import-db:\\
+$(printf "        %s\\\\\n" "$DB_URL_REPLACE_HOOK")
 " "$CONFIG_FILE"
-    printf "${GREEN}Added post-start hooks for WP Config in: ${BOLD}${CONFIG_FILE}${RESET}\n\n"
+      printf "${GREEN}Added post-import-db hooks for WP Config in: ${BOLD}${CONFIG_FILE}${RESET}\n\n"
+    fi
   else
     printf "${BLACK}The post-import-db hooks section already exist in $CONFIG_FILE. Skipping creation.${RESET}\n\n"
   fi

@@ -20,7 +20,7 @@ if [ -f composer.json ]; then
   composer config --no-interaction allow-plugins.roots/wordpress-core-installer true
   composer require --dev roots/wordpress
 else
-  composer init --author CassidyDC --require roots/wordpress:'*' --no-interaction
+  composer init --author CassidyDC --require-dev roots/wordpress:'*' --no-interaction
   composer config --no-interaction allow-plugins.roots/wordpress-core-installer true
   composer require --dev roots/wordpress
 fi
@@ -49,22 +49,17 @@ else
 fi
 
 # Set DDEV containers configuration
-if [ -n "$CUSTOM_TABLE_PREFIX" ]; then
-  printf "${BLUE}Setting DDEV configurations with a custom table prefix...${RESET}\n"
-  ddev config --project-type=wordpress --project-name=$PROJECT_NAME_SLUG --web-environment-add="TABLE_PREFIX=$CUSTOM_TABLE_PREFIX"
-else
-  printf "${BLUE}Setting DDEV configurations...${RESET}\n"
-  ddev config --project-type=wordpress --project-name=$PROJECT_NAME_SLUG
-fi
+printf "${BLUE}Setting DDEV configurations...${RESET}\n"
+ddev config --project-type=wordpress --project-name=$PROJECT_NAME_SLUG
 echo '' # new line
 
 # Add WP Config constants and set DDEV post-start hooks for restarts
-if $ADD_WP_CONFIG_SETTINGS; then
+if $INSTALL_WP_CONFIG_HOOKS; then
   source ${MODULES_DIR}/ddev-hooks-module.sh
 
   # Create the log directory if it's set in the settings and doesn't yet exist
   if [ -n "$WP_DEBUG_LOG_VALUE" ] && [ "$WP_DEBUG_LOG_VALUE" != "false" ]; then
-    LOG_DIR="$(dirname "$WP_DEBUG_LOG_VALUE")"
+    LOG_DIR="$(dirname "$WP_DEBUG_LOG_VALUE" | tr -d "'")"
 
     if [ -n "$LOG_DIR" ]; then
       printf "${BLUE}Creating $LOG_DIR directory...${RESET}\n"

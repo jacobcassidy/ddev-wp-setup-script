@@ -1,11 +1,15 @@
-# Ignore all files unless explicitly added below
-/*
+# Ignore WordPress Core
+/wordpress
 
-# Allow themes and plugins to be added below
-!/wp-content
-/wp-content/*
-!wp-content/mu-plugins/
-wp-content/mu-plugins/*
+# Ignore dev files
+ddev-wp-setup-script
+logs
+vendor
+wp-config-ddev.php
+wp-config.php
+
+# Ignore all wp-content files by default, but allow themes and plugins to be added below
+wp-content/*
 !wp-content/plugins/
 wp-content/plugins/*
 !wp-content/themes/
@@ -16,6 +20,3 @@ wp-content/themes/*
 
 # Don't ignore the following plugins
 # !wp-content/plugins/plugin-name
-
-# Don't ignore the following files
-!.gitignore
