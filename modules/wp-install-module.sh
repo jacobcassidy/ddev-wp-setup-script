@@ -105,7 +105,7 @@ if $INSTALL_WP_DEFAULT_THEME; then
 fi
 
 # Install and activate CassidyWP Starter Block Theme
-if $INSTALL_CASSIDYDC_STARTER_THEME && [ -n $INSTALL_CASSIDYDC_STARTER_THEME]; then
+if $INSTALL_CASSIDYDC_STARTER_THEME; then
   if ddev wp theme is-installed ${CASSIDYDC_STARTER_THEME_SLUG} > /dev/null 2>&1; then
     CUSTOM_THEME_NAME=$(ddev wp theme get ${CASSIDYDC_STARTER_THEME_SLUG} --field=name)
     printf "${BLUE}Installing ${CUSTOM_THEME_NAME}...${RESET}\n"
