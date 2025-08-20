@@ -1,10 +1,16 @@
 # Ignore WordPress Core
 /wordpress
 
-# Ignore dev files
+# Ignore dev directories
+.dev-assets
 ddev-wp-setup-script
 logs
+node_modules
 vendor
+
+# Ignore dev files
+composer.lock
+package-lock.json
 wp-config-ddev.php
 wp-config.php
 
