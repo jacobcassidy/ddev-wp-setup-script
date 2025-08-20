@@ -1,8 +1,15 @@
 # Changelog for `ddev-wp-setup-script`
 
+## 2.2.1
+
+_2025-08-20_
+
+-   Added conditional rule for updating gitignore with custom theme slug.
+-   Added additional dev files and directories to `.gitignore`.
+
 ## 2.2.0
 
-_2025-08-01__
+_2025-08-01_
 
 -   Refactor settings
 
